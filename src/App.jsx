@@ -1,8 +1,14 @@
+import { useState } from 'react'
 import './index.css'
 import heroIllustration from './assets/illus.svg'
 import decorativeShape from './assets/Decore.svg'
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <div className="App">
       {/* Header */}
@@ -16,7 +22,13 @@ function App() {
               <h1 className="logo-text">Travel-io</h1>
             </div>
             
-            <div className="nav-content">
+            <button className="hamburger-menu" onClick={toggleMenu}>
+              <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
+              <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
+              <span className={`hamburger-line ${isMenuOpen ? 'active' : ''}`}></span>
+            </button>
+
+            <div className={`nav-content ${isMenuOpen ? 'mobile-open' : ''}`}>
               <div className="nav-menu">
                 <a href="#" className="nav-item">Hakkımızda</a>
                 <a href="#" className="nav-item">Gezilerimiz</a>
@@ -76,8 +88,8 @@ function App() {
                     <div className="download-small">Download on the</div>
                     <div className="download-large">App Store</div>
                   </div>
-                </a>
-              </div>
+        </a>
+      </div>
             </div>
             
             <div className="hero-illustration">
