@@ -6,6 +6,11 @@ import aboutImage1 from './assets/about-image-1.png'
 import aboutImage2 from './assets/about-image-2.png'
 import aboutImage3 from './assets/about-image-3.png'
 import corporateWoman from './assets/corporate-woman.png'
+import romeDestination from './assets/rome-destination.jpg'
+import londonDestination from './assets/london-destination.jpg'
+import europeDestination from './assets/europe-destination.jpg'
+import decorationLeft from './assets/decoration-left.svg'
+import decorationRight from './assets/decoration-right.svg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -222,73 +227,101 @@ function App() {
       {/* Destinations Section */}
       <section className="destinations">
         <div className="container">
-          <div className="destinations-header">
-            <h2 className="destinations-title">GEZİLERİMİZ</h2>
-            <p className="destinations-subtitle">Daha Fazlası için Hemen Uygulamamızı İndirin!</p>
-          </div>
-          
-          <div className="destinations-grid">
-            <div className="destination-item">
-              <img 
-                src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=400&h=500&fit=crop" 
-                alt="Rome, Italy" 
-                className="destination-image"
-              />
-              <div className="destination-info">
-                <h3 className="destination-name">Rome, Italy</h3>
-                <div className="destination-details">
-                  <div className="destination-location">
-                    <div className="location-icon">📍</div>
+          <div className="destinations-container">
+            <div className="destinations-decorations">
+              <img src={decorationLeft} alt="Decoration Left" className="decoration-left" />
+              <img src={decorationRight} alt="Decoration Right" className="decoration-right" />
+            </div>
+
+            <div className="destinations-header">
+              <h2 className="destinations-title">GEZİLERİMİZ</h2>
+            </div>
+            
+            <div className="destinations-grid">
+              <div className="destination-card">
+                <div className="destination-image-container">
+                  <img src={romeDestination} alt="Rome, Italy" className="destination-image" />
+                  <div className="rating-badge">
+                    <div className="star-icon">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 0.5L9.8 6.1L15.5 6.1L10.9 9.8L12.7 15.4L8 11.7L3.3 15.4L5.1 9.8L0.5 6.1L6.2 6.1L8 0.5Z" fill="#FFEA00"/>
+                        <path d="M8 0.5L6.2 6.1L0.5 6.1L5.1 9.8L3.3 15.4L8 11.7V0.5Z" fill="#FFEA00" opacity="0.5"/>
+                      </svg>
+                    </div>
+                    <span className="rating-number">9.2</span>
+                  </div>
+                </div>
+                <div className="destination-info">
+                  <div className="destination-info-top">
+                    <h3 className="destination-name">Rome, Italy</h3>
+                    <div className="destination-price">2500$ / Kişi</div>
+                  </div>
+                  <div className="destination-info-bottom">
+                    <svg className="location-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 0C5.2 0 3 2.2 3 5C3 8.5 8 16 8 16S13 8.5 13 5C13 2.2 10.8 0 8 0ZM8 7C6.9 7 6 6.1 6 5C6 3.9 6.9 3 8 3C9.1 3 10 3.9 10 5C10 6.1 9.1 7 8 7Z" fill="#24BAEC"/>
+                    </svg>
                     <span className="destination-duration">2 Gün Konaklama</span>
                   </div>
                 </div>
-                <div className="destination-price">2500$ / Kişi</div>
               </div>
-              <div className="rating-badge">
-                <span className="rating-text">⭐ 9.2</span>
-              </div>
-            </div>
-            
-            <div className="destination-item">
-              <img 
-                src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=500&fit=crop" 
-                alt="London, UK" 
-                className="destination-image"
-              />
-              <div className="destination-info">
-                <h3 className="destination-name">London, UK</h3>
-                <div className="destination-details">
-                  <div className="destination-location">
-                    <div className="location-icon">📍</div>
+              
+              <div className="destination-card">
+                <div className="destination-image-container">
+                  <img src={londonDestination} alt="London, UK" className="destination-image" />
+                  <div className="rating-badge">
+                    <div className="star-icon">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 0.5L9.8 6.1L15.5 6.1L10.9 9.8L12.7 15.4L8 11.7L3.3 15.4L5.1 9.8L0.5 6.1L6.2 6.1L8 0.5Z" fill="#FFEA00"/>
+                        <path d="M8 0.5L6.2 6.1L0.5 6.1L5.1 9.8L3.3 15.4L8 11.7V0.5Z" fill="#FFEA00" opacity="0.5"/>
+                      </svg>
+                    </div>
+                    <span className="rating-number">8.9</span>
+                  </div>
+                </div>
+                <div className="destination-info">
+                  <div className="destination-info-top">
+                    <h3 className="destination-name">London, UK</h3>
+                    <div className="destination-price">1500$ / Kişi</div>
+                  </div>
+                  <div className="destination-info-bottom">
+                    <svg className="location-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 0C5.2 0 3 2.2 3 5C3 8.5 8 16 8 16S13 8.5 13 5C13 2.2 10.8 0 8 0ZM8 7C6.9 7 6 6.1 6 5C6 3.9 6.9 3 8 3C9.1 3 10 3.9 10 5C10 6.1 9.1 7 8 7Z" fill="#24BAEC"/>
+                    </svg>
                     <span className="destination-duration">4 Gün Konaklama</span>
                   </div>
                 </div>
-                <div className="destination-price">1500$ / Kişi</div>
               </div>
-              <div className="rating-badge">
-                <span className="rating-text">⭐ 8.9</span>
-              </div>
-            </div>
-            
-            <div className="destination-item">
-              <img 
-                src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=500&fit=crop" 
-                alt="Full Europe" 
-                className="destination-image"
-              />
-              <div className="destination-info">
-                <h3 className="destination-name">Full Europe</h3>
-                <div className="destination-details">
-                  <div className="destination-location">
-                    <div className="location-icon">📍</div>
+              
+              <div className="destination-card">
+                <div className="destination-image-container">
+                  <img src={europeDestination} alt="Full Europe" className="destination-image" />
+                  <div className="rating-badge">
+                    <div className="star-icon">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 0.5L9.8 6.1L15.5 6.1L10.9 9.8L12.7 15.4L8 11.7L3.3 15.4L5.1 9.8L0.5 6.1L6.2 6.1L8 0.5Z" fill="#FFEA00"/>
+                        <path d="M8 0.5L6.2 6.1L0.5 6.1L5.1 9.8L3.3 15.4L8 11.7V0.5Z" fill="#FFEA00" opacity="0.5"/>
+                      </svg>
+                    </div>
+                    <span className="rating-number">8.6</span>
+                  </div>
+                </div>
+                <div className="destination-info">
+                  <div className="destination-info-top">
+                    <h3 className="destination-name">Full Europe</h3>
+                    <div className="destination-price">500$ / Kişi</div>
+                  </div>
+                  <div className="destination-info-bottom">
+                    <svg className="location-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 0C5.2 0 3 2.2 3 5C3 8.5 8 16 8 16S13 8.5 13 5C13 2.2 10.8 0 8 0ZM8 7C6.9 7 6 6.1 6 5C6 3.9 6.9 3 8 3C9.1 3 10 3.9 10 5C10 6.1 9.1 7 8 7Z" fill="#24BAEC"/>
+                    </svg>
                     <span className="destination-duration">1 Gün Konaklama</span>
                   </div>
                 </div>
-                <div className="destination-price">500$ / Kişi</div>
               </div>
-              <div className="rating-badge">
-                <span className="rating-text">⭐ 8.6</span>
-              </div>
+            </div>
+
+            <div className="destinations-footer">
+              <p className="destinations-subtitle">Daha Fazlası için Hemen Uygulamamızı İndirin!</p>
             </div>
           </div>
         </div>
