@@ -20,12 +20,44 @@ import jetstarLogo from './assets/jetstar-logo.png'
 import expediaLogo from './assets/expedia-logo.png'
 import qantasLogo from './assets/qantas-logo.png'
 import alitaliaLogo from './assets/alitalia-logo.png'
+import userAvatar from './assets/user-avatar.png'
+import arrowDown from './assets/arrow-down.svg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const testimonials = [
+    {
+      text: "\"On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.\"",
+      name: "Tunahan KORKMAZ",
+      trip: "Kastamonu Gezisi",
+      avatar: userAvatar
+    },
+    {
+      text: "\"Seyahat deneyimim gerçekten muhteşemdi. Organizasyon mükemmeldi ve her detay düşünülmüştü. Kesinlikle tekrar tercih edeceğim.\"",
+      name: "Ayşe YILMAZ",
+      trip: "Antalya Gezisi",
+      avatar: userAvatar
+    },
+    {
+      text: "\"Profesyonel ekip, kaliteli hizmet ve unutulmaz anılar. Bu kadar keyifli bir tatil geçireceğimi hiç düşünmemiştim.\"",
+      name: "Mehmet ÖZKAN",
+      trip: "Kapadokya Gezisi",
+      avatar: userAvatar
+    }
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
   return (
     <div className="App">
@@ -484,29 +516,41 @@ function App() {
       {/* Testimonials Section */}
       <section className="testimonials">
         <div className="container">
-          <div className="testimonials-header">
-            <h2 className="testimonials-title">{`kATILIMCILAR\nNE DÜŞÜNÜYOR?`}</h2>
-            <div className="testimonials-dots">
-              <div className="dot active"></div>
-              <div className="dot"></div>
-              <div className="dot"></div>
-            </div>
-          </div>
-          
-          <div className="testimonial-card">
-            <p className="testimonial-text">
-              "On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no."
-            </p>
-            <div className="testimonial-author">
-              <div className="author-avatar" style={{background: 'linear-gradient(45deg, #42A7C3, #8ADBF0)'}}></div>
-              <div className="author-info">
-                <h4 className="author-name">Tunahan KORKMAZ</h4>
-                <p className="author-trip">Kastamonu Gezisi</p>
+          <div className="testimonials-container">
+            <div className="testimonials-left">
+              <h2 className="testimonials-title">KATILIMCILAR<br />NE DÜŞÜNÜYOR?</h2>
+              <div className="testimonials-dots">
+                {testimonials.map((_, index) => (
+                  <div 
+                    key={index} 
+                    className={`dot ${index === currentTestimonial ? 'active' : ''}`}
+                    onClick={() => setCurrentTestimonial(index)}
+                  ></div>
+                ))}
               </div>
             </div>
-            <div className="testimonial-nav">
-              <div className="nav-arrow up"></div>
-              <div className="nav-arrow"></div>
+            
+            <div className="testimonials-right">
+              <div className="testimonial-cards-container">
+                <div className="testimonial-card active" key={currentTestimonial}>
+                  <p className="testimonial-text">
+                    {testimonials[currentTestimonial].text}
+                  </p>
+                  <div className="testimonial-author">
+                    <img src={testimonials[currentTestimonial].avatar} alt="User Avatar" className="author-avatar" />
+                    <div className="author-info">
+                      <h4 className="author-name">{testimonials[currentTestimonial].name}</h4>
+                      <p className="author-trip">{testimonials[currentTestimonial].trip}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="testimonial-nav">
+                <button className="nav-arrow down" onClick={nextTestimonial}>
+                  <img src={arrowDown} alt="Next" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
