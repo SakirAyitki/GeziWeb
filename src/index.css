@@ -1804,10 +1804,10 @@ margin-left: 40px;
 
 .email-icon {
   position: absolute;
-  top: 25px;
-  left: 31px;
-  width: 21px;
-  height: 18px;
+  top: 12.5px;
+  left: 12px;
+  width: 10px;
+  height: 10px;
 }
 
 .email-input {
@@ -1874,27 +1874,34 @@ margin-left: 40px;
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 64px;
-  align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 72px;
+  max-width: 1170px;
+  margin: 0 auto;
 }
 
 .footer-logo {
   width: 219px;
   height: 63px;
+  flex-shrink: 0;
 }
 
-.footer-main {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 64px;
-  width: 100%;
-  max-width: 780px;
+.footer-right {
+  display: flex;
+  gap: 65px;
+  align-items: flex-start;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 65px;
 }
 
 .footer-discover {
   width: 224px;
+  flex-shrink: 0;
 }
 
 .footer-discover-title {
@@ -1916,10 +1923,12 @@ margin-left: 40px;
 .footer-app {
   background: #080809;
   border-radius: 17.5px;
-  padding: 8px 17px;
   display: flex;
   align-items: center;
-  gap: 19px;
+  justify-content: flex-start;
+  padding: 7px 17px;
+  gap: 8px;
+  position: relative;
 }
 
 .app-google {
@@ -1928,8 +1937,19 @@ margin-left: 40px;
 }
 
 .app-apple {
-  width: 100px;
+  width: 110px;
   height: 35px;
+}
+
+.app-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.app-text {
+  flex: 1;
+  height: auto;
 }
 
 .footer-social {
@@ -1946,18 +1966,35 @@ margin-left: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.social-icon.instagram {
+.social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.social-icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.email-icon,
+.facebook-icon,
+.twitter-icon {
+  width: 41px;
+  height: 41px;
+}
+
+.instagram-icon {
   width: 45px;
   height: 45px;
   background: conic-gradient(from 180deg at 50% 50%, #B8D2F1 0deg, #F289AA 60.12deg, #C68BF0 106.09deg, #D164DA 153.75deg, #C963E8 221.25deg, #BFC2E8 258.75deg, #FFC999 288.75deg, #D0D8C9 315deg, #BAD0F1 334.34deg, #CED8CB 359.05deg, #FFFFFF 360deg);
 }
 
 .footer-nav {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 48px;
+  display: flex;
+  gap: 65px;
 }
 
 .nav-column {
@@ -1971,7 +2008,13 @@ margin-left: 40px;
   font-size: 21px;
   line-height: 1.245;
   color: #080809;
-  margin-bottom: 34px;
+  margin-bottom: 16px;
+}
+
+.nav-column-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .nav-column-item {
@@ -1981,7 +2024,7 @@ margin-left: 40px;
   line-height: 1.245;
   color: #5E6282;
   text-decoration: none;
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
 .nav-column-item:hover {
@@ -2778,21 +2821,33 @@ margin-left: 40px;
   }
   
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    justify-items: center;
-    text-align: center;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .footer-main {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    width: 100%;
+  .footer-right {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    text-align: center;
   }
   
   .footer-nav {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+  
+  .nav-column {
+    align-items: center;
+    text-align: center;
   }
   
   .references-logos {
@@ -3611,23 +3666,33 @@ margin-left: 40px;
   }
   
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    justify-items: center;
-    text-align: center;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .footer-main {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    width: 100%;
+  .footer-right {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
     text-align: center;
   }
 
   .footer-nav {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  
+  .nav-column {
+    align-items: center;
     text-align: center;
-    gap: 30px;
   }
   
   .footer-social {
