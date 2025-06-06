@@ -2,6 +2,9 @@ import { useState } from 'react'
 import './index.css'
 import heroIllustration from './assets/illus.svg'
 import decorativeShape from './assets/Decore.svg'
+import aboutImage1 from './assets/about-image-1.png'
+import aboutImage2 from './assets/about-image-2.png'
+import aboutImage3 from './assets/about-image-3.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -106,19 +109,12 @@ function App() {
             <h2 className="about-title">HAKKIMIZDA</h2>
             <div className="about-content">
               <div className="about-illustration">
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  background: 'linear-gradient(135deg, #FF7029, #42A7C3)',
-                  borderRadius: '20px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  fontSize: '24px',
-                  fontWeight: 'bold'
-                }}>
-                  🌍 Seyahat Deneyimi
+                <div className="travelers-point">
+                  <div className="travel-image-group">
+                    <img src={aboutImage3} alt="Mountain Traveler" className="travel-image-main" />
+                    <img src={aboutImage2} alt="Venice Canal" className="travel-image-overlay-1" />
+                    <img src={aboutImage1} alt="Bridge Walk" className="travel-image-overlay-2" />
+                  </div>
                 </div>
               </div>
               

@@ -786,7 +786,59 @@ body {
 .about-illustration {
   width: 100%;
   max-width: 537px;
-  height: auto;
+  height: 376px;
+  position: relative;
+}
+
+.travelers-point {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.travel-image-group {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.travel-image-main {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 254px;
+  height: 377px;
+  border-radius: 95px;
+  object-fit: cover;
+  z-index: 1;
+  border: 8px solid #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.travel-image-overlay-1 {
+  position: absolute;
+  left: 200px;
+  top: 97px;
+  width: 185px;
+  height: 279px;
+  border-radius: 95px;
+  object-fit: cover;
+  z-index: 2;
+  border: 8px solid #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.travel-image-overlay-2 {
+  position: absolute;
+  left: 370px;
+  top: 0;
+  width: 167px;
+  height: 261px;
+  border-radius: 95px;
+  object-fit: cover;
+  z-index: 3;
+  border: 8px solid #FFFFFF;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .about-text {
@@ -1564,9 +1616,46 @@ body {
 
   .about-illustration {
     width: 100%;
-    height: auto;
-    max-width: 537px;
+    height: 260px;
+    max-width: 380px;
     margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .travelers-point {
+    position: relative;
+    width: 300px;
+    height: 240px;
+  }
+
+  .travel-image-main {
+    width: 140px;
+    height: 210px;
+    border: 4px solid #FFFFFF;
+    left: 10px;
+    top: 15px;
+    border-radius: 70px;
+  }
+
+  .travel-image-overlay-1 {
+    left: 90px;
+    top: 35px;
+    width: 110px;
+    height: 165px;
+    border: 4px solid #FFFFFF;
+    border-radius: 55px;
+  }
+
+  .travel-image-overlay-2 {
+    left: 150px;
+    top: 5px;
+    width: 90px;
+    height: 135px;
+    border: 4px solid #FFFFFF;
+    border-radius: 45px;
   }
 
   .about-text {
@@ -1747,10 +1836,21 @@ body {
     width: 100%;
   }
 
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .about-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 35px;
+    margin-bottom: 35px;
+    align-items: center;
+    justify-items: center;
   }
 
   .about-illustration {
@@ -1771,9 +1871,12 @@ body {
   
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-top: 20px;
+    gap: 16px;
+    margin-top: 30px;
     width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .testimonials {
@@ -1980,16 +2083,65 @@ body {
     gap: 10px;
   }
 
+  .about-section {
+    padding: 40px 0;
+  }
+
+  .about-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 25px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-items: center;
   }
 
   .about-illustration {
     width: 100%;
-    max-width: 300px;
+    height: 200px;
+    max-width: 260px;
     margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .travelers-point {
+    position: relative;
+    width: 220px;
+    height: 180px;
+  }
+
+  .travel-image-main {
+    width: 100px;
+    height: 150px;
+    border: 3px solid #FFFFFF;
+    left: 5px;
+    top: 15px;
+    border-radius: 50px;
+  }
+
+  .travel-image-overlay-1 {
+    left: 60px;
+    top: 25px;
+    width: 80px;
+    height: 120px;
+    border: 3px solid #FFFFFF;
+    border-radius: 40px;
+  }
+
+  .travel-image-overlay-2 {
+    left: 105px;
+    top: 5px;
+    width: 65px;
+    height: 95px;
+    border: 3px solid #FFFFFF;
+    border-radius: 32px;
   }
 
   .about-text {
@@ -2004,13 +2156,33 @@ body {
   }
   
   .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .stat-card {
-    padding: 15px;
+    padding: 12px 8px;
+    width: 100%;
+    height: 80px;
+  }
+  
+  .stat-content {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    height: auto;
+    margin-bottom: 5px;
+  }
+  
+  .stat-number {
+    font-size: 20px;
   }
   
   .destination-item {
