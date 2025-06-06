@@ -5,6 +5,7 @@ import decorativeShape from './assets/Decore.svg'
 import aboutImage1 from './assets/about-image-1.png'
 import aboutImage2 from './assets/about-image-2.png'
 import aboutImage3 from './assets/about-image-3.png'
+import corporateWoman from './assets/corporate-woman.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -154,6 +155,65 @@ function App() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Corporate Special Section */}
+      <section className="corporate-section">
+        <div className="container">
+          <div className="corporate-container">
+            <div className="corporate-visual">
+              <div className="corporate-bg-shape"></div>
+              <img src={corporateWoman} alt="Corporate Woman" className="corporate-woman-image" />
+              <div className="floating-circles">
+                <div className="circle green-circle"></div>
+                <div className="circle blue-circle"></div>
+                <div className="circle red-circle-1"></div>
+                <div className="circle red-circle-2"></div>
+              </div>
+            </div>
+            
+            <div className="corporate-content">
+              <div className="corporate-text">
+                <div className="corporate-header">
+                  <span className="corporate-badge">KURUMSAL ÖZEL!</span>
+                  <h2 className="corporate-title">
+                    ÇALIŞANLARINIZA GEZİ<br />
+                    <span className="title-highlight">HEDİYE EDİN!</span>
+                  </h2>
+                </div>
+                <p className="corporate-description">
+                  Çalışanlarınıza diledikleri gezi turu için kupon hazırlayıp<br />
+                  hediye edebilirsiniz!
+                </p>
+              </div>
+              
+              <div className="corporate-stats">
+                <div className="corporate-stats-grid">
+                  <div className="corporate-stat-card">
+                    <div className="stat-number">200+</div>
+                    <div className="stat-label">Kurum Sayısı</div>
+                  </div>
+                  <div className="corporate-stat-card coupon-highlight">
+                    <div className="stat-number">500+</div>
+                    <div className="stat-label">Hediye Kupon</div>
+                  </div>
+                </div>
+                <div className="corporate-stats-grid">
+                  <div className="corporate-stat-card">
+                    <div className="stat-number">10</div>
+                    <div className="stat-label">Farklı Sektör Sayısı</div>
+                  </div>
+                  <div className="corporate-stat-card">
+                    <div className="stat-number">350+</div>
+                    <div className="stat-label">Geziye Dahil Olan<br />Çalışan</div>
+                  </div>
+                </div>
+              </div>
+              
+              <button className="corporate-btn">Detaylı Bilgi Alın!</button>
             </div>
           </div>
         </div>
