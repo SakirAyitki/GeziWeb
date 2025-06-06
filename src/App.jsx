@@ -41,6 +41,10 @@ function App() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
+
   const testimonials = [
     {
       text: "\"On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.\"",
@@ -90,10 +94,11 @@ function App() {
 
             <div className={`nav-content ${isMenuOpen ? 'mobile-open' : ''}`}>
               <div className="nav-menu">
-                <a href="#" className="nav-item">Hakkımızda</a>
-                <a href="#" className="nav-item">Gezilerimiz</a>
-                <a href="#" className="nav-item">Neden Biz?</a>
-                <a href="#" className="nav-item">Referanslarımız</a>
+                <a href="#about" className="nav-item" onClick={handleNavClick}>Hakkımızda</a>
+                <a href="#corporate" className="nav-item" onClick={handleNavClick}>Kurumsal Özel</a>
+                <a href="#destinations" className="nav-item" onClick={handleNavClick}>Gezilerimiz</a>
+                <a href="#why-us" className="nav-item" onClick={handleNavClick}>Neden Biz?</a>
+                <a href="#references" className="nav-item" onClick={handleNavClick}>Referanslarımız</a>
               </div>
               
               <div className="nav-buttons">
@@ -160,7 +165,7 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section className="about-section">
+      <section id="about" className="about-section">
         <div className="container">
           <div className="about-container">
             <h2 className="about-title">HAKKIMIZDA</h2>
@@ -217,7 +222,7 @@ function App() {
       </section>
 
       {/* Corporate Special Section */}
-      <section className="corporate-section">
+      <section id="corporate" className="corporate-section">
         <div className="container">
           <div className="corporate-container">
             <div className="corporate-visual">
@@ -276,7 +281,7 @@ function App() {
       </section>
 
       {/* Destinations Section */}
-      <section className="destinations">
+      <section id="destinations" className="destinations">
         <div className="container">
           <div className="destinations-container">
             <div className="destinations-decorations">
@@ -379,7 +384,7 @@ function App() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="why-section">
+      <section id="why-us" className="why-section">
         <div className="container">
           <div className="why-container">
             <div className="why-image">
@@ -482,7 +487,7 @@ function App() {
       </section>
 
       {/* References Section */}
-      <section className="references">
+      <section id="references" className="references">
         <div className="container">
           <h2 className="references-title">REFERANSLARIMIZ</h2>
           <div className="references-logos">
