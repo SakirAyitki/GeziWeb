@@ -22,6 +22,7 @@ import qantasLogo from './assets/qantas-logo.png'
 import alitaliaLogo from './assets/alitalia-logo.png'
 import userAvatar from './assets/user-avatar.png'
 import arrowDown from './assets/arrow-down.svg'
+import planeIcon from './assets/plane-icon.svg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -558,23 +559,23 @@ function App() {
 
       {/* Newsletter Section */}
       <section className="newsletter">
-        <div className="container">
-          <div className="newsletter-bg"></div>
-          <div className="newsletter-content">
-            <h2 className="newsletter-title">
-              Travel-io hakkında bilgi, son haberler ve diğer ilginç teklifleri almak için abone olun
-            </h2>
-            <div className="newsletter-form">
+        <div className="newsletter-content">
+          <h2 className="newsletter-title">
+            Travel-io hakkında bilgi, son haberler ve diğer ilginç teklifleri almak için abone olun
+          </h2>
+          <div className="newsletter-form">
+            <div className="email-input-container">
+              <div className="email-icon"></div>
               <input 
                 type="email" 
                 placeholder="Mail Adresiniz..." 
                 className="email-input"
               />
-              <button className="subscribe-btn">Abone Ol!</button>
             </div>
-            <div className="newsletter-icon">
-              ✈️
-            </div>
+            <button className="subscribe-btn">Abone Ol!</button>
+          </div>
+          <div className="newsletter-icon">
+            <img src={planeIcon} alt="Plane Icon" />
           </div>
         </div>
       </section>
