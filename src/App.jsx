@@ -11,6 +11,10 @@ import londonDestination from './assets/london-destination.jpg'
 import europeDestination from './assets/europe-destination.jpg'
 import decorationLeft from './assets/decoration-left.svg'
 import decorationRight from './assets/decoration-right.svg'
+import whyChooseUsCard from './assets/why-choose-us-card.png'
+import chooseDestinationIcon from './assets/choose-destination-icon.svg'
+import makePaymentIcon from './assets/make-payment-icon.svg'
+import reachAirportIcon from './assets/reach-airport-icon.svg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -330,103 +334,98 @@ function App() {
       {/* Why Choose Us Section */}
       <section className="why-section">
         <div className="container">
-          <div className="why-header">
-            <h2 className="why-title">NEDEN BİZİ SEÇMELİSİN?</h2>
-          </div>
-          
-          <div className="why-content">
+          <div className="why-container">
             <div className="why-image">
-              <div style={{
-                width: '100%',
-                height: '100%',
-                background: 'linear-gradient(135deg, #24BAEC, #FF7029)',
-                borderRadius: '26px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'white',
-                fontSize: '28px',
-                fontWeight: 'bold'
-              }}>
-                🗺️ Seyahat Planı
-              </div>
+              <img src={whyChooseUsCard} alt="Book a trip" className="why-card-image" />
             </div>
             
-            <div className="why-steps">
-              <div className="steps-grid">
-                <div className="step-column">
-                  <div className="step-item">
-                    <div className="step-icon yellow">
-                      ✈️
+            <div className="why-content">
+              <div className="why-header">
+                <h2 className="why-title">NEDEN BİZİ SEÇMELİSİN?</h2>
+              </div>
+              
+              <div className="why-steps">
+                <div className="steps-grid">
+                  <div className="step-column">
+                    <div className="step-item">
+                      <div className="step-icon-container">
+                        <img src={chooseDestinationIcon} alt="Choose Destination" className="step-icon" />
+                      </div>
+                      <div className="step-content">
+                        <h3 className="step-title">Choose Destination</h3>
+                        <p className="step-description">
+                          Lorem ipsum dolor sit amet, consectetur<br />
+                          adipiscing elit. Urna, tortor tempus.
+                        </p>
+                      </div>
                     </div>
-                    <div className="step-content">
-                      <h3 className="step-title">Choose Destination</h3>
-                      <p className="step-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
-                      </p>
+                    
+                    <div className="step-item">
+                      <div className="step-icon-container orange">
+                        <img src={makePaymentIcon} alt="Make Payment" className="step-icon" />
+                      </div>
+                      <div className="step-content">
+                        <h3 className="step-title">Make Payment</h3>
+                        <p className="step-description">
+                          Lorem ipsum dolor sit amet, consectetur<br />
+                          adipiscing elit. Urna, tortor tempus.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="step-item">
-                    <div className="step-icon orange">
-                      💳
-                    </div>
-                    <div className="step-content">
-                      <h3 className="step-title">Make Payment</h3>
-                      <p className="step-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="step-item">
-                    <div className="step-icon blue">
-                      🚗
-                    </div>
-                    <div className="step-content">
-                      <h3 className="step-title">Reach Airport on Selected Date</h3>
-                      <p className="step-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="step-column">
-                  <div className="step-item">
-                    <div className="step-icon yellow">
-                      ✈️
-                    </div>
-                    <div className="step-content">
-                      <h3 className="step-title">Choose Destination</h3>
-                      <p className="step-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
-                      </p>
+                    
+                    <div className="step-item">
+                      <div className="step-icon-container blue">
+                        <img src={reachAirportIcon} alt="Reach Airport" className="step-icon" />
+                      </div>
+                      <div className="step-content">
+                        <h3 className="step-title">Reach Airport on Selected Date</h3>
+                        <p className="step-description">
+                          Lorem ipsum dolor sit amet, consectetur<br />
+                          adipiscing elit. Urna, tortor tempus.
+                        </p>
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="step-item">
-                    <div className="step-icon orange">
-                      💳
+                  <div className="step-column">
+                    <div className="step-item">
+                      <div className="step-icon-container">
+                        <img src={chooseDestinationIcon} alt="Choose Destination" className="step-icon" />
+                      </div>
+                      <div className="step-content">
+                        <h3 className="step-title">Choose Destination</h3>
+                        <p className="step-description">
+                          Lorem ipsum dolor sit amet, consectetur<br />
+                          adipiscing elit. Urna, tortor tempus.
+                        </p>
+                      </div>
                     </div>
-                    <div className="step-content">
-                      <h3 className="step-title">Make Payment</h3>
-                      <p className="step-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
-                      </p>
+                    
+                    <div className="step-item">
+                      <div className="step-icon-container orange">
+                        <img src={makePaymentIcon} alt="Make Payment" className="step-icon" />
+                      </div>
+                      <div className="step-content">
+                        <h3 className="step-title">Make Payment</h3>
+                        <p className="step-description">
+                          Lorem ipsum dolor sit amet, consectetur<br />
+                          adipiscing elit. Urna, tortor tempus.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="step-item">
-                    <div className="step-icon blue">
-                      🚗
+                    
+                    <div className="step-item">
+                      <div className="step-icon-container blue">
+                        <img src={reachAirportIcon} alt="Reach Airport" className="step-icon" />
+                      </div>
+                      <div className="step-content">
+                        <h3 className="step-title">Reach Airport on Selected Date</h3>
+                        <p className="step-description">
+                          Lorem ipsum dolor sit amet, consectetur<br />
+                          adipiscing elit. Urna, tortor tempus.
+                        </p>
+                      </div>
                     </div>
-                    <div className="step-content">
-                      <h3 className="step-title">Reach Airport on Selected Date</h3>
-                      <p className="step-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna, tortor tempus.
-        </p>
-      </div>
                   </div>
                 </div>
               </div>
