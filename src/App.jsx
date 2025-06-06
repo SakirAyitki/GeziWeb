@@ -23,6 +23,7 @@ import alitaliaLogo from './assets/alitalia-logo.png'
 import userAvatar from './assets/user-avatar.png'
 import arrowDown from './assets/arrow-down.svg'
 import planeIcon from './assets/plane-icon.svg'
+import emailIcon from './assets/email-icon.svg'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -565,7 +566,7 @@ function App() {
           </h2>
           <div className="newsletter-form">
             <div className="email-input-container">
-              <div className="email-icon"></div>
+              <img src={emailIcon} alt="Email Icon" className="email-icon" />
               <input 
                 type="email" 
                 placeholder="Mail Adresiniz..." 
