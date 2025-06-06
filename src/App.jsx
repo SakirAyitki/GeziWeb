@@ -15,6 +15,11 @@ import whyChooseUsCard from './assets/why-choose-us-card.png'
 import chooseDestinationIcon from './assets/choose-destination-icon.svg'
 import makePaymentIcon from './assets/make-payment-icon.svg'
 import reachAirportIcon from './assets/reach-airport-icon.svg'
+import axonAirlinesLogo from './assets/axon-airlines-logo.png'
+import jetstarLogo from './assets/jetstar-logo.png'
+import expediaLogo from './assets/expedia-logo.png'
+import qantasLogo from './assets/qantas-logo.png'
+import alitaliaLogo from './assets/alitalia-logo.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -439,20 +444,38 @@ function App() {
         <div className="container">
           <h2 className="references-title">REFERANSLARIMIZ</h2>
           <div className="references-logos">
-            <div className="logo-item">
-              <div style={{width: '130px', height: '130px', background: '#ddd', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}>Logo 1</div>
-            </div>
-            <div className="logo-item">
-              <div style={{width: '172px', height: '110px', background: '#ddd', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}>Logo 2</div>
-            </div>
-            <div className="logo-item with-bg">
-              <div style={{width: '162px', height: '162px', background: '#ddd', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}>Logo 3</div>
-            </div>
-            <div className="logo-item">
-              <div style={{width: '162px', height: '32px', background: '#ddd', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px'}}>Logo 4</div>
-            </div>
-            <div className="logo-item">
-              <div style={{width: '94px', height: '21px', background: '#ddd', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px'}}>Logo 5</div>
+            <div className="logo-carousel">
+              <div className="logo-item axon">
+                <img src={axonAirlinesLogo} alt="Axon Airlines" className="logo-image" />
+              </div>
+              <div className="logo-item jetstar">
+                <img src={jetstarLogo} alt="Jetstar" className="logo-image" />
+              </div>
+              <div className="logo-item expedia">
+                <img src={expediaLogo} alt="Expedia" className="logo-image" />
+              </div>
+              <div className="logo-item qantas">
+                <img src={qantasLogo} alt="Qantas" className="logo-image" />
+              </div>
+              <div className="logo-item alitalia">
+                <img src={alitaliaLogo} alt="Alitalia" className="logo-image" />
+              </div>
+              {/* Duplicate logos for seamless loop */}
+              <div className="logo-item axon">
+                <img src={axonAirlinesLogo} alt="Axon Airlines" className="logo-image" />
+              </div>
+              <div className="logo-item jetstar">
+                <img src={jetstarLogo} alt="Jetstar" className="logo-image" />
+              </div>
+              <div className="logo-item expedia">
+                <img src={expediaLogo} alt="Expedia" className="logo-image" />
+              </div>
+              <div className="logo-item qantas">
+                <img src={qantasLogo} alt="Qantas" className="logo-image" />
+              </div>
+              <div className="logo-item alitalia">
+                <img src={alitaliaLogo} alt="Alitalia" className="logo-image" />
+              </div>
             </div>
           </div>
         </div>
