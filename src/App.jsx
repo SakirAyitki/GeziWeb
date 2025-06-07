@@ -102,7 +102,7 @@ function App() {
               </div>
               
               <div className="nav-buttons">
-                <a href="#" className="btn-primary">Firmamız Ol!</a>
+                <a href="/firmamizi-ol" className="btn-primary">Firmamız Ol!</a>
                 <div className="language-selector">
                   <span className="language-text">TR</span>
                   <div className="dropdown-icon"></div>
