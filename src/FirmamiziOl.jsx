@@ -148,12 +148,31 @@ const FirmamiziOl = () => {
             <p>Sırasıyla diğer bölümlere geçebilirsiniz...</p>
           </div>
 
-          <div className="content-tabs">
-            <div className="tab active">İçindekiler</div>
-            <div className="tab">Veri Güvenliği</div>
-            <div className="tab">Hızlı Başlangıç</div>
-            <div className="tab">Uygulama Hakkında</div>
-            <div className="tab">Sık Sorulan Sorular</div>
+          <div className="content-navigation">
+            <div className="nav-tabs">
+              <div className="nav-tab active">
+                İçindekiler
+                <div className="tab-connector"></div>
+              </div>
+              <div className="nav-tab">
+                Veri Güvenliği
+                <div className="tab-connector"></div>
+              </div>
+              <div className="nav-tab">
+                Hızlı Başlangıç
+                <div className="tab-connector"></div>
+              </div>
+              <div className="nav-tab">
+                Uygulama Hakkında
+                <div className="tab-connector"></div>
+              </div>
+              <div className="nav-tab">
+                Sık Sorulan Sorular
+                <div className="tab-connector"></div>
+              </div>
+            </div>
+            <div className="nav-separator"></div>
+            <div className="content-area"></div>
           </div>
         </div>
       </div>
