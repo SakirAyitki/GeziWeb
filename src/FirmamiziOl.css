@@ -1,44 +1,45 @@
 /* Firmamız Ol Page Styles */
 .firmamizi-ol {
   min-height: 100vh;
-  background: #FFFFFF;
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Header Section */
-.firmamizi-ol-header {
+/* Header Styles */
+.firmamizi-ol .header {
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
 
-.hero-background {
+.firmamizi-ol .header-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/images/hero-bg.png') center/cover no-repeat;
-  z-index: 0;
-}
-
-.hero-background::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
-.firmamizi-ol-header .container {
-  position: relative;
-  z-index: 10;
+.firmamizi-ol .background-image {
+  width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
-.firmamizi-ol-header .navbar {
+.firmamizi-ol .header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.firmamizi-ol .navbar {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,297 +47,229 @@
   height: 68.71px;
 }
 
-.firmamizi-ol-header .brand {
-  display: flex;
-  align-items: center;
+.firmamizi-ol .brand .logo {
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
-.firmamizi-ol-header .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 0;
-}
-
-.firmamizi-ol-header .logo-text {
+.firmamizi-ol .brand .logo-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 34px;
   line-height: 1.2;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.firmamizi-ol-header .language-selector {
+.firmamizi-ol .language {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.flag-group {
-  position: relative;
+.firmamizi-ol .flag-container {
   width: 18px;
   height: 18px;
+  position: relative;
 }
 
-.flag-red {
-  position: absolute;
-  top: 0;
-  left: 0.51px;
-  width: 16.88px;
-  height: 8.44px;
+.firmamizi-ol .flag-tr {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #F9F9F9 50%, #ED4C5C 50%);
+  border-radius: 2px;
 }
 
-.flag-white {
-  position: absolute;
-  top: 9px;
-  left: 0.51px;
-  width: 16.88px;
-  height: 8.44px;
-}
-
-.firmamizi-ol-header .language-text {
+.firmamizi-ol .language-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.8;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.arrow-down {
+.firmamizi-ol .dropdown-arrow {
   width: 16px;
   height: 16px;
-}
-
-.hero-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 100px;
-  padding-top: 100px;
-  width: 970px;
-  margin: 0 auto;
-  position: relative;
+}
+
+.firmamizi-ol .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
-  min-height: calc(100vh - 100px);
-}
-
-.hero-title {
-  text-align: center;
   width: 970px;
+  text-align: center;
 }
 
-.hero-title h1 {
+.firmamizi-ol .hero-title h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 56px;
   line-height: 1.2;
-  color: #FFFFFF;
-  margin: 0 0 65.33px 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  width: 100%;
+  text-align: center;
 }
 
-.hero-title p {
+.firmamizi-ol .hero-title h1 .highlight {
+  color: #FF7029;
+}
+
+.firmamizi-ol .hero-title {
+  width: 100%;
+  text-align: center;
+}
+
+.firmamizi-ol .hero-title p {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.8;
   text-transform: uppercase;
-  color: #FFFFFF;
-  text-align: center;
-  width: 771.75px;
+  color: #ffffff;
   margin: 0 auto;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  max-width: 771px;
+  text-align: center;
 }
 
-.scroll-indicator {
+.firmamizi-ol .scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  width: 771.75px;
-  margin-top: 180px;
+  z-index: 10;
 }
 
-.scroll-indicator span {
+.firmamizi-ol .scroll-indicator span {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.8;
   text-transform: uppercase;
   color: #D9D9D9;
-  text-align: center;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.mouse-icon {
-  position: relative;
+.firmamizi-ol .mouse-icon {
   width: 29px;
   height: 29px;
 }
 
-.mouse-body {
-  position: absolute;
-  top: 2.42px;
-  left: 6.04px;
-  width: 16.92px;
-  height: 24.17px;
-}
-
-.mouse-scroll {
-  position: absolute;
-  top: 6.05px;
-  left: 14.5px;
-  width: 0px;
-  height: 3.63px;
-}
-
-/* Content Section */
-.content {
-  padding: 87px 46px 0;
-  background: #FFFFFF;
-}
-
-.content-layout {
+/* Content Styles */
+.firmamizi-ol .content {
   display: flex;
+  padding: 46px;
   gap: 116px;
-  max-width: 1350px;
-  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
 }
 
-/* Sidebar */
-.sidebar {
+/* Sidebar Styles */
+.firmamizi-ol .sidebar {
   width: 210px;
   flex-shrink: 0;
 }
 
-.search-box {
-  position: relative;
-  background: #F2F2F2;
-  border-radius: 4px;
-  height: 32px;
+.firmamizi-ol .search-box {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 7px;
   padding: 8px 11px;
+  background: #F2F2F2;
+  border-radius: 4px;
   margin-bottom: 32px;
 }
 
-.search-icon {
-  width: 12.34px;
-  height: 12.27px;
-}
-
-.search-box input {
-  border: none;
-  background: transparent;
+.firmamizi-ol .search-box span {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.21;
   color: #828282;
-  outline: none;
-  width: 99px;
 }
 
-.search-box input::placeholder {
-  color: #828282;
-}
-
-.sidebar-content {
+.firmamizi-ol .sidebar-section {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.section-title {
+.firmamizi-ol .section-title {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.21;
   text-transform: uppercase;
   color: #A6A6A6;
-  height: 20px;
+  margin: 0;
 }
 
-.menu-section {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.menu-item {
+.firmamizi-ol .menu-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
-  height: auto;
+  justify-content: space-between;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.14;
   color: #454545;
+  cursor: pointer;
 }
 
-.menu-item.expandable {
-  justify-content: space-between;
+.firmamizi-ol .menu-item.expandable {
+  gap: 4px;
 }
 
-.expand-icon {
+.firmamizi-ol .expand-icon {
   width: 14px;
   height: 20px;
-  background: url('/images/arrow-down.svg') center/contain no-repeat;
 }
 
-.progress-section {
+.firmamizi-ol .progress-steps {
   display: flex;
-  align-items: flex-end;
   gap: 7px;
-  height: auto;
+  align-items: flex-end;
+  margin: 12px 0;
 }
 
-.progress-dots {
+.firmamizi-ol .step-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2px;
   width: 10px;
-  height: 141px;
-  position: relative;
 }
 
-.dot {
+.firmamizi-ol .step-dot {
   width: 10px;
   height: 10.22px;
   border-radius: 50%;
   background: #E4E4E4;
-  position: absolute;
 }
 
-.dot.active {
+.firmamizi-ol .step-dot.active {
   background: #FF7029;
 }
 
-.dot:nth-child(1) { top: 0; }
-.dot:nth-child(3) { top: 31.67px; }
-.dot:nth-child(4) { top: 65.39px; }
-.dot:nth-child(5) { top: 100.13px; }
-.dot:nth-child(6) { top: 130.78px; }
-
-.line {
-  position: absolute;
-  top: 2.04px;
-  left: 4px;
+.firmamizi-ol .step-line {
   width: 2px;
-  height: 133.85px;
+  height: 30px;
   background: #E4E4E4;
 }
 
-.progress-labels {
+.firmamizi-ol .step-labels {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 135px;
+  gap: 30px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -344,17 +277,17 @@
   color: #454545;
 }
 
-/* Main Content */
-.main-content {
+/* Main Content Styles */
+.firmamizi-ol .main-content {
   flex: 1;
-  max-width: 1024px;
+  width: 100%;
 }
 
-.content-header {
+.firmamizi-ol .content-header {
   margin-bottom: 42px;
 }
 
-.content-header h2 {
+.firmamizi-ol .content-header h2 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 36px;
@@ -364,25 +297,34 @@
   margin: 0 0 21px 0;
 }
 
-.content-header p {
+.firmamizi-ol .content-header p {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.75;
   color: #454545;
   margin: 0;
-  height: 28px;
 }
 
-.content-tabs {
+/* Content Navigation */
+.firmamizi-ol .content-navigation {
   display: flex;
-  align-items: flex-end;
-  gap: 26px;
-  margin-bottom: 1px;
+  flex-direction: column;
+  gap: 42px;
+  margin-bottom: 42px;
 }
 
-.tab {
-  padding: 11px 16px;
+.firmamizi-ol .nav-tabs {
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+.firmamizi-ol .nav-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
   border-radius: 4px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -390,40 +332,110 @@
   line-height: 1.75;
   color: #454545;
   cursor: pointer;
-  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  position: absolute;
+  top: 0;
 }
 
-.tab.active {
+.firmamizi-ol .nav-tab.active {
   background: rgba(255, 112, 41, 0.2);
   border: 1px solid rgba(255, 112, 41, 0.1);
 }
 
-.tab:not(.active) {
+.firmamizi-ol .nav-tab:not(.active) {
   background: rgba(185, 185, 185, 0.2);
   border: 1px solid rgba(242, 242, 242, 0.1);
 }
 
-.content-divider {
+.firmamizi-ol .nav-tab:nth-child(1) {
+  left: 0;
+  width: 110px;
+}
+
+.firmamizi-ol .nav-tab:nth-child(2) {
+  left: 136px;
+  width: 136px;
+}
+
+.firmamizi-ol .nav-tab:nth-child(3) {
+  left: 298px;
+  width: 141px;
+}
+
+.firmamizi-ol .nav-tab:nth-child(4) {
+  left: 465px;
+  width: 183px;
+}
+
+.firmamizi-ol .nav-tab:nth-child(5) {
+  left: 674px;
+  width: 175px;
+}
+
+.firmamizi-ol .nav-tab:nth-child(1) .tab-connector {
+  position: absolute;
+  left: 110px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 0;
+  border-top: 2px solid rgba(255, 112, 41, 0.2);
+}
+
+.firmamizi-ol .nav-tab:nth-child(2) .tab-connector {
+  position: absolute;
+  left: 136px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 0;
+  border-top: 2px solid rgba(185, 185, 185, 0.4);
+}
+
+.firmamizi-ol .nav-tab:nth-child(3) .tab-connector {
+  position: absolute;
+  left: 141px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 0;
+  border-top: 2px solid rgba(185, 185, 185, 0.4);
+}
+
+.firmamizi-ol .nav-tab:nth-child(4) .tab-connector {
+  position: absolute;
+  left: 183px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 0;
+  border-top: 2px solid rgba(185, 185, 185, 0.4);
+}
+
+.firmamizi-ol .nav-tab:nth-child(5) .tab-connector {
+  display: none;
+}
+
+.firmamizi-ol .nav-separator {
   width: 100%;
   height: 1px;
   background: #E4E4E4;
-  margin-bottom: 8px;
 }
 
-.content-area {
+.firmamizi-ol .content-area {
   width: 100%;
-  height: 475px;
+  min-height: 475px;
   background: #F9F9F9;
   border-radius: 8px;
 }
 
 /* Membership Section */
-.membership-section {
-  padding: 119px 0 321px;
+.firmamizi-ol .membership-section {
+  padding: 100px 0;
   background: #F9F9F9;
 }
 
-.membership-title {
+.firmamizi-ol .membership-title {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 38px;
@@ -431,14 +443,10 @@
   text-transform: uppercase;
   text-align: center;
   color: #14183E;
-  margin: 0 0 119px 0;
-  width: 484px;
-  height: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 0 100px 0;
 }
 
-.step-container {
+.firmamizi-ol .step-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -446,16 +454,18 @@
   max-width: 1228px;
   margin: 0 auto;
   padding: 25px 43.5px;
-  background: #F9F9F9;
+  background: #ffffff;
   border-radius: 24px;
 }
 
-.step-images {
+/* Step Images */
+.firmamizi-ol .step-images {
   width: 558px;
   height: 1100px;
+  position: relative;
 }
 
-.step-image-group {
+.firmamizi-ol .image-stack {
   position: relative;
   width: 100%;
   height: 100%;
@@ -463,103 +473,95 @@
   overflow: hidden;
 }
 
-.step-image {
+.firmamizi-ol .step-image {
   position: absolute;
   width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.step-image img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
+  border-radius: 16px;
 }
 
-.step-1 {
+.firmamizi-ol .step-image.step-1 {
   top: 0;
   height: 383.8px;
   border-radius: 16px 16px 0 0;
 }
 
-.step-2 {
+.firmamizi-ol .step-image.step-2 {
   top: 383.8px;
   height: 357.94px;
 }
 
-.step-3 {
+.firmamizi-ol .step-image.step-3 {
   bottom: 0;
-  height: 358.26px;
+  height: 357.94px;
   border-radius: 0 0 16px 16px;
 }
 
-.step-form {
+/* Step Form */
+.firmamizi-ol .step-form {
   width: 552px;
   height: 1100px;
   background: #FCFCFC;
   border-radius: 8px;
-  position: relative;
 }
 
-.form-container {
-  padding: 8px 48.5px 0;
-  width: 456px;
-  height: 1001px;
+.firmamizi-ol .form-container {
+  padding: 48.5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
-.progress-bar {
+/* Progress Bar */
+.firmamizi-ol .progress-bar {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 80px;
 }
 
-.progress-step {
+.firmamizi-ol .progress-step {
   display: flex;
   align-items: center;
 }
 
-.step-indicator {
+.firmamizi-ol .step-circle {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px solid #B9B9C3;
 }
 
-.progress-step.active .step-indicator {
+.firmamizi-ol .step-circle.active {
   background: #24BAEC;
   border: none;
 }
 
-.progress-line {
+.firmamizi-ol .progress-line {
   width: 194px;
   height: 1px;
   background: #B9B9C3;
 }
 
-.step-content {
+/* Form Content */
+.firmamizi-ol .form-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-.step-header {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.step-header h3 {
+.firmamizi-ol .form-header h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 32px;
   line-height: 1.125;
   color: #242731;
-  margin: 0;
+  margin: 0 0 16px 0;
 }
 
-.step-header p {
+.firmamizi-ol .form-header p {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -568,59 +570,44 @@
   margin: 0;
 }
 
-.agreement-section {
+/* Agreement */
+.firmamizi-ol .agreement {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.checkbox-container {
+.firmamizi-ol .checkbox-container {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.custom-checkbox {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-}
-
-.checkbox-bg {
-  position: absolute;
-  top: 4px;
-  left: 4px;
+.firmamizi-ol .checkbox-container input[type="checkbox"] {
   width: 24px;
   height: 24px;
+  border-radius: 6px;
+  border: 2px solid #24BAEC;
+  background: #ffffff;
+  cursor: pointer;
 }
 
-.checkbox-check {
-  position: absolute;
-  top: 10.58px;
-  left: 9px;
-  width: 14px;
-  height: 10.42px;
-}
-
-.agreement-text {
+.firmamizi-ol .checkbox-label {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   color: #000000;
+  cursor: pointer;
 }
 
-.agreement-text .link {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
+.firmamizi-ol .checkbox-label .link {
   color: #24BAEC;
-  text-decoration: none;
+  font-weight: 500;
 }
 
-.form-section {
+/* Form Sections */
+.firmamizi-ol .form-section {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -629,22 +616,45 @@
   border-radius: 8px;
 }
 
-.form-section h4 {
+.firmamizi-ol .form-section h4 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.4;
   color: #242731;
-  margin: 0 0 2px 0;
+  margin: 0;
 }
 
-.form-field {
+.firmamizi-ol .contact-section {
+  gap: 2px;
+  padding: 16px;
+}
+
+.firmamizi-ol .contact-section h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #242731;
+}
+
+.firmamizi-ol .contact-section p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #575F6E;
+  margin: 0 0 16px 0;
+}
+
+/* Form Fields */
+.firmamizi-ol .form-field {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.form-field label {
+.firmamizi-ol .form-field label {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -652,13 +662,7 @@
   color: #242426;
 }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.input-container input {
+.firmamizi-ol .form-field input {
   padding: 8px 16px;
   border: none;
   border-bottom: 1px solid #E2E4E5;
@@ -671,62 +675,28 @@
   outline: none;
 }
 
-.input-container input:focus {
+.firmamizi-ol .form-field input:focus {
   border-bottom-color: #24BAEC;
 }
 
-.contact-section {
+.firmamizi-ol .input-with-icon {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 16px;
-  border: 1px solid #E2E4E5;
-  border-radius: 8px;
-}
-
-.section-header {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-bottom: 30px;
-}
-
-.section-header h4 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.33;
-  color: #242731;
-  margin: 0;
-}
-
-.section-header p {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 1.33;
-  color: #575F6E;
-  margin: 0;
-}
-
-.contact-section .input-container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   gap: 16px;
   padding: 8px 0;
   border-bottom: 1px solid #E2E4E5;
 }
 
-.input-icon {
+.firmamizi-ol .input-icon {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
 }
 
-.contact-section input {
+.firmamizi-ol .input-with-icon input {
   flex: 1;
   border: none;
+  padding: 0;
   background: transparent;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -734,254 +704,177 @@
   line-height: 1.56;
   color: #242426;
   outline: none;
-  padding: 0;
 }
 
-.continue-btn {
+/* Submit Button */
+.firmamizi-ol .submit-btn {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 0 24px 0 32px;
   height: 48px;
   background: #FF7029;
   border: 1px solid #24BAEC;
   border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.continue-btn span {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   text-transform: uppercase;
   color: #242731;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.btn-icon {
-  width: 12px;
-  height: 8px;
-}
-
-.continue-btn:hover {
-  background: #FF8A4A;
-  transform: translateY(-1px);
-}
-
-/* Footer */
-.footer {
-  background: #FFFFFF;
-  padding: 72px 135px 0;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 64px;
-  max-width: 1123px;
-  margin: 0 auto;
-}
-
-.footer-brand {
-  width: 219px;
-  height: 63px;
-  position: relative;
-}
-
-.footer-logo {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.footer-logo .logo-bg {
-  position: absolute;
-  top: 51px;
-  left: 99.7px;
-  width: 94.1px;
-  height: 12px;
+.firmamizi-ol .submit-btn:hover {
   background: #24BAEC;
-  border-radius: 7px;
+  color: #ffffff;
 }
 
-.footer-logo .logo-accent-1 {
-  position: absolute;
-  top: 8px;
-  left: 185.6px;
-  width: 22.4px;
-  height: 12px;
-  background: #FF7029;
-  border-radius: 7px;
+.firmamizi-ol .btn-icon {
+  width: 24px;
+  height: 24px;
 }
 
-.footer-logo .logo-accent-2 {
-  position: absolute;
-  top: 51px;
-  left: 0;
-  width: 22.4px;
-  height: 12px;
-  background: #FF7029;
-  border-radius: 7px;
+/* Footer - Firmamız Ol Sayfası İçin Özel Footer */
+.firmamizi-ol .firmamizi-footer {
+  background: #080809;
+  padding: 72px 0;
 }
 
-.footer-logo .logo-text {
-  position: absolute;
-  top: 0;
-  left: 0;
+.firmamizi-ol .firmamizi-footer-container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.firmamizi-ol .firmamizi-footer-brand {
+  margin-bottom: 64px;
+}
+
+.firmamizi-ol .firmamizi-footer-logo-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 40px;
   line-height: 1.5;
   color: #000000;
-  width: 219px;
-  height: 60px;
+  background: linear-gradient(45deg, #FF7029, #24BAEC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.footer-sections {
+.firmamizi-ol .firmamizi-footer-content {
   display: flex;
-  gap: 64px;
-  width: 735px;
-  height: 279px;
+  justify-content: space-between;
+  gap: 65px;
+  margin-bottom: 64px;
 }
 
-.footer-social {
-  width: 224px;
-  height: 147px;
-  position: relative;
-}
-
-.social-icons {
-  position: absolute;
-  top: 0;
-  left: 2px;
+/* Footer Social */
+.firmamizi-ol .firmamizi-footer-social {
   display: flex;
-  gap: 25px;
-  width: 177px;
-  height: 45px;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.social-icon {
-  position: relative;
+.firmamizi-ol .firmamizi-social-icons {
+  display: flex;
+  gap: 24px;
+}
+
+.firmamizi-ol .firmamizi-social-icon {
   width: 41px;
   height: 41px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.social-icon.instagram {
+.firmamizi-ol .firmamizi-social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.firmamizi-ol .firmamizi-social-icon.twitter,
+.firmamizi-ol .firmamizi-social-icon.facebook {
+  background: #080809;
+}
+
+.firmamizi-ol .firmamizi-social-icon.instagram {
+  background: linear-gradient(45deg, #B8D2F1, #F289AA, #C68BF0, #D164DA, #C963E8, #BFC2E8, #FFC999, #D0D8C9, #BAD0F1, #CED8CB);
+}
+
+.firmamizi-ol .firmamizi-instagram-gradient {
   width: 45px;
   height: 45px;
-}
-
-.social-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   border-radius: 50%;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #B8D2F1, #F289AA, #C68BF0, #D164DA, #C963E8, #BFC2E8, #FFC999, #D0D8C9, #BAD0F1, #CED8CB);
 }
 
-.social-icon-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Footer Download */
+.firmamizi-ol .firmamizi-footer-download {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.app-download {
-  position: absolute;
-  top: 71px;
-  left: 0;
-  width: 224px;
-  height: 76px;
-}
-
-.app-download h4 {
+.firmamizi-ol .firmamizi-footer-download h4 {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.24;
   letter-spacing: 0.5%;
   color: #5E6282;
-  margin: 0 0 16px 2px;
-  width: 222px;
-  height: 25px;
+  margin: 0;
 }
 
-.download-buttons {
+.firmamizi-ol .firmamizi-download-buttons {
   display: flex;
   gap: 7px;
 }
 
-.download-btn {
-  position: relative;
-  height: 35px;
-  border-radius: 17.5px;
-  overflow: hidden;
-}
-
-.download-btn.google-play {
+.firmamizi-ol .firmamizi-download-btn {
   width: 107px;
-}
-
-.download-btn.app-store {
-  width: 100px;
-}
-
-.download-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  height: 35px;
   background: #080809;
   border-radius: 17.5px;
-}
-
-.download-content {
-  position: relative;
-  z-index: 1;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 7px 17px;
-  height: 100%;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.google-play-icons {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+.firmamizi-ol .firmamizi-download-btn:hover {
+  transform: translateY(-2px);
+}
+
+.firmamizi-ol .firmamizi-download-icon {
   width: 20px;
   height: 20px;
 }
 
-.apple-icons {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  width: 13.12px;
-  height: 16px;
-}
-
-.download-text {
-  height: 14.8px;
-}
-
-.footer-nav {
+/* Footer Navigation */
+.firmamizi-ol .firmamizi-footer-nav {
   display: flex;
   gap: 65px;
 }
 
-.nav-column {
+.firmamizi-ol .firmamizi-nav-column {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.nav-column h4 {
+.firmamizi-ol .firmamizi-nav-column h5 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 21px;
@@ -990,13 +883,16 @@
   margin: 0;
 }
 
-.nav-links {
+.firmamizi-ol .firmamizi-nav-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 13px;
 }
 
-.nav-links a {
+.firmamizi-ol .firmamizi-nav-column a {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -1006,267 +902,103 @@
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #24BAEC;
+.firmamizi-ol .firmamizi-nav-column a:hover {
+  color: #FF7029;
 }
 
-.footer-bottom {
+/* Footer Bottom */
+.firmamizi-ol .firmamizi-footer-bottom {
   text-align: center;
-  padding: 31.5px 0 17px;
-  margin-top: 262px;
+  padding-top: 32px;
+  border-top: 1px solid #333;
 }
 
-.footer-bottom p {
+.firmamizi-ol .firmamizi-footer-bottom p {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.24;
   color: #5E6282;
   margin: 0;
-  width: 285px;
-  height: 17px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .content {
-    padding: 60px 30px 0;
-  }
-  
-  .content-layout {
+  .firmamizi-ol .content {
     gap: 60px;
+    padding: 30px;
   }
   
-  .step-container {
+  .firmamizi-ol .step-container {
     flex-direction: column;
     gap: 40px;
     padding: 40px 20px;
   }
   
-  .step-images,
-  .step-form {
+  .firmamizi-ol .step-images,
+  .firmamizi-ol .step-form {
     width: 100%;
     max-width: 600px;
   }
   
-  .footer {
-    padding: 50px 30px 0;
+  .firmamizi-ol .step-images {
+    height: 400px;
   }
   
-  .footer-content {
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
+  .firmamizi-ol .step-form {
+    height: auto;
   }
 }
 
 @media (max-width: 768px) {
-  .firmamizi-ol-header {
-    height: 100vh;
+  .firmamizi-ol .hero-content {
+    padding: 150px 20px 0;
+    gap: 100px;
   }
   
-  .hero-content {
-    padding-top: 80px;
-    gap: 60px;
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    min-height: calc(100vh - 80px);
-    justify-content: center;
-  }
-  
-  .hero-title {
-    width: 100%;
-  }
-  
-  .hero-title h1 {
+  .firmamizi-ol .hero-title h1 {
     font-size: 36px;
-    margin-bottom: 40px;
   }
   
-  .hero-title p {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .scroll-indicator {
-    width: 100%;
-  }
-  
-  .content-layout {
+  .firmamizi-ol .content {
     flex-direction: column;
     gap: 40px;
   }
   
-  .sidebar {
+  .firmamizi-ol .sidebar {
     width: 100%;
   }
   
-  .main-content {
-    width: 100%;
-  }
-  
-  .content-tabs {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .tab {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-  
-  .membership-section {
-    padding: 60px 20px;
-  }
-  
-  .membership-title {
-    font-size: 28px;
-    width: 100%;
-    margin-bottom: 60px;
-  }
-  
-  .step-images {
-    height: 600px;
-  }
-  
-  .step-form {
-    height: auto;
-  }
-  
-  .form-container {
-    padding: 20px;
-    width: 100%;
-  }
-  
-  .progress-bar {
-    margin-bottom: 40px;
-  }
-  
-  .progress-line {
-    width: 100px;
-  }
-  
-  .footer-sections {
+  .firmamizi-ol .firmamizi-footer-content {
     flex-direction: column;
     gap: 40px;
-    width: 100%;
-    height: auto;
   }
   
-  .footer-social {
-    width: 100%;
-    height: auto;
-    text-align: center;
-  }
-  
-  .social-icons {
-    position: static;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-  
-  .app-download {
-    position: static;
-    width: 100%;
-    height: auto;
-  }
-  
-  .footer-nav {
+  .firmamizi-ol .firmamizi-footer-nav {
     flex-direction: column;
     gap: 30px;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .footer-bottom {
-    margin-top: 40px;
   }
 }
 
 @media (max-width: 480px) {
-  .firmamizi-ol-header .navbar {
+  .firmamizi-ol .navbar {
     padding: 15px 20px;
   }
   
-  .firmamizi-ol-header .logo-text {
+  .firmamizi-ol .brand .logo-text {
     font-size: 24px;
   }
   
-  .hero-title h1 {
-    font-size: 28px;
-    line-height: 1.3;
-  }
-  
-  .hero-title p {
-    font-size: 12px;
-  }
-  
-  .content {
-    padding: 40px 15px 0;
-  }
-  
-  .search-box {
-    padding: 6px 8px;
-  }
-  
-  .search-box input {
-    font-size: 11px;
-    width: 80px;
-  }
-  
-  .content-header h2 {
+  .firmamizi-ol .hero-title h1 {
     font-size: 28px;
   }
   
-  .content-tabs {
-    gap: 5px;
+  .firmamizi-ol .membership-title {
+    font-size: 28px;
+    padding: 0 20px;
   }
   
-  .tab {
-    padding: 6px 8px;
-    font-size: 12px;
-  }
-  
-  .membership-title {
-    font-size: 24px;
-    line-height: 1.3;
-  }
-  
-  .step-header h3 {
-    font-size: 24px;
-  }
-  
-  .step-header p {
-    font-size: 14px;
-  }
-  
-  .form-section,
-  .contact-section {
+  .firmamizi-ol .form-container {
     padding: 20px;
-  }
-  
-  .continue-btn {
-    padding: 0 16px 0 20px;
-    height: 40px;
-  }
-  
-  .continue-btn span {
-    font-size: 14px;
-  }
-  
-  .footer {
-    padding: 40px 15px 0;
-  }
-  
-  .footer-brand {
-    width: 180px;
-    height: 50px;
-  }
-  
-  .footer-logo .logo-text {
-    font-size: 32px;
   }
 } 
