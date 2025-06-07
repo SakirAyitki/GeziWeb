@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './index.css'
+import FirmamiziOl from './FirmamiziOl.jsx'
 import heroIllustration from './assets/illus.svg'
 import decorativeShape from './assets/Decore.svg'
 import aboutImage1 from './assets/about-image-1.png'
@@ -74,6 +76,9 @@ function App() {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
   return (
+    <Routes>
+      <Route path="/firmamizi-ol" element={<FirmamiziOl />} />
+      <Route path="/" element={
     <div className="App">
       {/* Header */}
       <header className="header">
@@ -102,7 +107,7 @@ function App() {
               </div>
               
               <div className="nav-buttons">
-                <a href="#" className="btn-primary">Firmamız Ol!</a>
+                <a href="/firmamizi-ol" className="btn-primary">Firmamız Ol!</a>
                 <div className="language-selector">
                   <span className="language-text">TR</span>
                   <div className="dropdown-icon"></div>
@@ -665,6 +670,8 @@ function App() {
         </div>
       </footer>
     </div>
+      } />
+    </Routes>
   )
 }
 
