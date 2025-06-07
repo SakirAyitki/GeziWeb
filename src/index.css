@@ -1873,6 +1873,13 @@ margin-left: 40px;
   padding: 72px 0;
 }
 
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: #E5E5E5;
+  margin-bottom: 50px;
+}
+
 .footer-content {
   display: flex;
   justify-content: center;
@@ -3698,6 +3705,288 @@ margin-left: 40px;
   .footer-social {
     justify-content: center;
   }
+}
+
+/* Footer */
+.footer {
+  background: #F8F9FA;
+  padding: 72px 0;
+}
+
+/* Success Page Layout - Firmamız Ol Form Completion */
+.success-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.success-page.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.success-modal {
+  background: #F9F9F9;
+  border-radius: 8px;
+  width: 649px;
+  height: 390px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.success-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  padding: 8px 0 0;
+  width: 100%;
+  max-width: 455px;
+}
+
+.success-progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.progress-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #34C759;
+}
+
+.progress-line {
+  width: 194px;
+  height: 1px;
+  background: #34C759;
+}
+
+.success-icon {
+  width: 56px;
+  height: 56px;
+  background: #34C759;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.success-icon::after {
+  content: '✓';
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.success-text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.success-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.success-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.125;
+  color: #242731;
+  text-align: center;
+  margin: 0;
+}
+
+.success-description {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.375;
+  color: #575F6E;
+  text-align: center;
+  margin: 0;
+}
+
+.success-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #575F6E;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.success-close-btn:hover {
+  background: rgba(87, 95, 110, 0.1);
+  color: #242731;
+}
+
+/* Responsive Design for Success Modal */
+@media (max-width: 768px) {
+  .success-modal {
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    min-height: 350px;
+    margin: 20px;
+    padding: 40px 20px;
+  }
+
+  .success-content {
+    gap: 24px;
+    max-width: 100%;
+  }
+
+  .success-title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .success-description {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .success-progress-bar {
+    gap: 6px;
+  }
+
+  .progress-line {
+    width: 120px;
+  }
+
+  .success-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .success-icon::after {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-modal {
+    width: 95%;
+    margin: 10px;
+    padding: 30px 15px;
+    min-height: 300px;
+  }
+
+  .success-content {
+    gap: 20px;
+  }
+
+  .success-title {
+    font-size: 20px;
+  }
+
+  .success-description {
+    font-size: 13px;
+  }
+
+  .success-progress-bar {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .progress-line {
+    width: 2px;
+    height: 20px;
+    background: #34C759;
+  }
+
+  .success-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .success-icon::after {
+    font-size: 20px;
+  }
+}
+
+/* Loading Spinner for Form Submission */
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.corporate-submit-btn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Form Error Styles */
+.error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
+}
+
+.field-error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 

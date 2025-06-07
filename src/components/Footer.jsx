@@ -9,6 +9,7 @@ import twitterIcon from '../assets/twitter-icon.svg'
 const Footer = () => {
   return (
     <footer className="footer">
+      <div className="footer-divider"></div>
       <div className="container">
         <div className="footer-content">
           {/* Logo */}
