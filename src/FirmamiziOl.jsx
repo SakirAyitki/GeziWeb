@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FirmamiziOl.css';
+import Footer from './components/Footer.jsx';
 
 // Import images
 import heroBackground from '../assets/images/hero-background.jpg';
@@ -9,12 +10,28 @@ import stepImage2 from '../assets/images/step-image-2.jpg';
 import stepImage3 from '../assets/images/step-image-3.jpg';
 
 const FirmamiziOl = () => {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
+    // Step 1 data
     firstName: 'Tunahan',
     lastName: 'Korkmaz',
     email: 'tunahan@gmail.com',
     phone: '+90 543 914 6761',
-    termsAccepted: true
+    termsAccepted: true,
+    // Step 2 data
+    username: 'cankiriturizm',
+    password: '',
+    confirmPassword: '',
+    // Step 3 data
+    companyName: 'cankiriturizm',
+    companyAddress: '',
+    companyPhone: '',
+    taxNumber: '',
+    foundingDate: '12.05.1992',
+    operationLocation: 'Çankırı, TUR',
+    taxDocument: null
   });
 
   const handleInputChange = (e) => {
@@ -27,8 +44,42 @@ const FirmamiziOl = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      console.log('Form completed:', formData);
+    }
   };
+
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const checkPasswordStrength = (password) => {
+    if (password.length < 6) return { isStrong: false, message: 'Şifre çok kısa' };
+    if (password.length >= 8 && /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+      return { isStrong: true, message: 'Şifreniz Güçlü' };
+    }
+    return { isStrong: false, message: 'Şifre zayıf' };
+  };
+
+  const passwordsMatch = () => {
+    return formData.password === formData.confirmPassword && formData.confirmPassword !== '';
+  };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData(prev => ({
+        ...prev,
+        taxDocument: file
+      }));
+    }
+  };
+
+
 
   return (
     <div className="firmamizi-ol">
@@ -196,110 +247,403 @@ const FirmamiziOl = () => {
             <div className="form-container">
               {/* Progress Bar */}
               <div className="progress-bar">
-                <div className="progress-step active">
-                  <div className="step-circle active"></div>
-                </div>
-                <div className="progress-line"></div>
-                <div className="progress-step">
-                  <div className="step-circle"></div>
-                </div>
-                <div className="progress-line"></div>
-                <div className="progress-step">
-                  <div className="step-circle"></div>
-                </div>
+                <div className={`step-circle ${currentStep >= 1 ? 'active' : ''}`}></div>
+                <div className={`progress-line ${currentStep >= 2 ? 'active' : ''}`}></div>
+                <div className={`step-circle ${currentStep >= 2 ? 'active' : ''}`}></div>
+                <div className={`progress-line ${currentStep >= 3 ? 'active' : ''}`}></div>
+                <div className={`step-circle ${currentStep >= 3 ? 'active' : ''}`}></div>
               </div>
 
               {/* Form Content */}
               <div className="form-content">
-                <div className="form-header">
-                  <h3>Yetkili Kişi Bilgileri</h3>
-                  <p>Lütfen firmanızın, üyelik sürecinde irtibatta kalabileceğimiz yetkili kişinin bilgilerini giriniz.</p>
-                </div>
-
                 <form onSubmit={handleSubmit}>
-                  {/* Terms Agreement */}
-                  <div className="agreement">
-                    <div className="checkbox-container">
-                      <input
-                        type="checkbox"
-                        id="terms"
-                        name="termsAccepted"
-                        checked={formData.termsAccepted}
-                        onChange={handleInputChange}
-                      />
-                      <label htmlFor="terms" className="checkbox-label">
-                        <span className="link">Kullanım Şartlarını</span> Onaylıyorum
-                      </label>
-                    </div>
-                  </div>
-
-                  {/* Personal Information */}
-                  <div className="form-section">
-                    <h4>Kişisel Bilgiler</h4>
-                    
-                    <div className="form-field">
-                      <label>Adınız</label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-
-                    <div className="form-field">
-                      <label>Soyadınız</label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Contact Information */}
-                  <div className="form-section contact-section">
-                    <h4>İletişim Bilgileri</h4>
-                    <p>Lütfen süreç içerisinde irtibata geçebileceğimiz mail adresi ve telefon numarası giriniz.</p>
-                    
-                    <div className="form-field">
-                      <div className="input-with-icon">
-                        <svg className="input-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#D4D4D4" strokeWidth="2"/>
-                          <polyline points="22,6 12,13 2,6" stroke="#D4D4D4" strokeWidth="2"/>
-                        </svg>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                        />
+                  {currentStep === 1 && (
+                    <>
+                      {/* Form Title */}
+                      <div className="form-title">
+                        <h3>Yetkili Kişi Bilgileri</h3>
+                        <p>Lütfen firmanızın, üyelik sürecinde irtibatta kalabileceğimiz yetkili kişinin bilgilerini giriniz.</p>
                       </div>
-                    </div>
 
-                    <div className="form-field">
-                      <div className="input-with-icon">
-                        <svg className="input-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M22 16.92V19.92C22 20.52 21.52 21 20.92 21C9.4 21 0 11.6 0 0.08C0 -0.52 0.48 -1 1.08 -1H4.08C4.68 -1 5.16 -0.52 5.16 0.08C5.16 2.08 5.52 4.04 6.2 5.88C6.36 6.24 6.24 6.68 5.92 6.96L4.4 8.48C6.04 11.84 8.16 13.96 11.52 15.6L13.04 14.08C13.32 13.76 13.76 13.64 14.12 13.8C15.96 14.48 17.92 14.84 19.92 14.84C20.52 14.84 21 15.32 21 15.92V16.92Z" fill="#D4D4D4"/>
-                        </svg>
+                      {/* Terms Agreement */}
+                      <div className="terms-agreement">
                         <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
+                          type="checkbox"
+                          id="terms"
+                          name="termsAccepted"
+                          checked={formData.termsAccepted}
                           onChange={handleInputChange}
+                          className="terms-checkbox"
                         />
+                        <label htmlFor="terms" className="terms-label">
+                          <a href="#" className="link">Kullanım Şartlarını</a> Onaylıyorum
+                        </label>
                       </div>
-                    </div>
-                  </div>
 
-                  {/* Submit Button */}
-                  <button type="submit" className="submit-btn">
-                    Devam Et
-                    <svg className="btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                  </button>
+                      {/* Personal Information Section */}
+                      <div className="personal-info-section">
+                        <div className="section-header">
+                          <h4 className="section-title">Kişisel Bilgiler</h4>
+                        </div>
+                        
+                        <div className="form-row">
+                          <div className="form-field">
+                            <label>Adınız</label>
+                            <input
+                              type="text"
+                              name="firstName"
+                              value={formData.firstName}
+                              onChange={handleInputChange}
+                              placeholder="Tunahan"
+                            />
+                          </div>
+
+                          <div className="form-field">
+                            <label>Soyadınız</label>
+                            <input
+                              type="text"
+                              name="lastName"
+                              value={formData.lastName}
+                              onChange={handleInputChange}
+                              placeholder="Korkmaz"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Contact Information Section */}
+                      <div className="contact-info-section">
+                        <div className="section-header">
+                          <h4 className="section-title">İletişim Bilgileri</h4>
+                          <p className="section-description">Lütfen süreç içerisinde irtibata geçebileceğimiz mail adresi ve telefon numarası giriniz.</p>
+                        </div>
+                        
+                        <div className="form-row">
+                          <div className="form-field">
+                            <label>E-posta Adresi</label>
+                            <div className="input-with-icon">
+                              <svg className="input-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#D4D4D4" strokeWidth="2"/>
+                                <polyline points="22,6 12,13 2,6" stroke="#D4D4D4" strokeWidth="2"/>
+                              </svg>
+                              <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                placeholder="tunahan@gmail.com"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="form-row">
+                          <div className="form-field">
+                            <label>Telefon Numarası</label>
+                            <div className="input-with-icon">
+                              <svg className="input-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 16.92V19.92C22 20.52 21.52 21 20.92 21C9.4 21 0 11.6 0 0.08C0 -0.52 0.48 -1 1.08 -1H4.08C4.68 -1 5.16 -0.52 5.16 0.08C5.16 2.08 5.52 4.04 6.2 5.88C6.36 6.24 6.24 6.68 5.92 6.96L4.4 8.48C6.04 11.84 8.16 13.96 11.52 15.6L13.04 14.08C13.32 13.76 13.76 13.64 14.12 13.8C15.96 14.48 17.92 14.84 19.92 14.84C20.52 14.84 21 15.32 21 15.92V16.92Z" fill="#D4D4D4"/>
+                              </svg>
+                              <input
+                                type="tel"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                                placeholder="+90 543 914 6761"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Submit Button */}
+                      <button type="submit" className="submit-btn">
+                        Devam Et
+                        <svg className="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                          <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2"/>
+                        </svg>
+                      </button>
+                    </>
+                  )}
+
+                  {currentStep === 2 && (
+                    <>
+                      {/* Form Title */}
+                      <div className="form-title">
+                        <h3>Admin Panel Hesap Bilgileri</h3>
+                        <p>Süreci takip edebilmeniz için sizlere admin paneli sağlayacağız! Lütfen paneliniz için kullanıcı adı ve şifre değerleri giriniz.</p>
+                      </div>
+
+                      {/* Admin Panel Section */}
+                      <div className="admin-panel-section">
+                        <div className="section-header">
+                          <h4 className="section-title">Hesap Bilgileri</h4>
+                        </div>
+                        
+                        <div className="form-row">
+                          <div className="form-field">
+                            <label>Kullanıcı Adı</label>
+                            <input
+                              type="text"
+                              name="username"
+                              value={formData.username}
+                              onChange={handleInputChange}
+                              placeholder="cankiriturizm"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="form-row">
+                          <div className="form-field password-field">
+                            <label>Şifre Belirleyin</label>
+                            <div className="input-with-icon">
+                              <input
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                placeholder="Şifrenizi girin"
+                                style={{ fontFamily: showPassword ? 'Roboto, sans-serif' : 'monospace' }}
+                              />
+                              <button 
+                                type="button" 
+                                className="password-toggle"
+                                onClick={() => setShowPassword(!showPassword)}
+                              >
+                                {showPassword ? (
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="#D4D4D4" strokeWidth="2"/>
+                                    <line x1="1" y1="1" x2="23" y2="23" stroke="#D4D4D4" strokeWidth="2"/>
+                                  </svg>
+                                ) : (
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z" stroke="#D4D4D4" strokeWidth="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="#D4D4D4" strokeWidth="2"/>
+                                  </svg>
+                                )}
+                              </button>
+                            </div>
+                            {formData.password && (
+                              <div className="password-strength">
+                                <svg className="strength-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                  <path d="M13.19 4.19L9 8.38L5.81 5.19C5.42 4.8 4.79 4.8 4.4 5.19C4.01 5.58 4.01 6.21 4.4 6.6L8.29 10.49C8.68 10.88 9.31 10.88 9.7 10.49L14.6 5.59C14.99 5.2 14.99 4.57 14.6 4.18C14.21 3.79 13.58 3.79 13.19 4.18V4.19Z" fill={checkPasswordStrength(formData.password).isStrong ? "#34C759" : "#FF3B30"}/>
+                                </svg>
+                                <span className={`strength-text ${checkPasswordStrength(formData.password).isStrong ? 'strong' : 'weak'}`}>
+                                  {checkPasswordStrength(formData.password).message}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="form-row">
+                          <div className="form-field password-field">
+                            <label>Şifrenizi Yeniden Tuşlayın</label>
+                            <div className="input-with-icon">
+                              <input
+                                type={showConfirmPassword ? "text" : "password"}
+                                name="confirmPassword"
+                                value={formData.confirmPassword}
+                                onChange={handleInputChange}
+                                placeholder="Şifrenizi tekrar girin"
+                                style={{ fontFamily: showConfirmPassword ? 'Roboto, sans-serif' : 'monospace' }}
+                              />
+                              <button 
+                                type="button" 
+                                className="password-toggle"
+                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                              >
+                                {showConfirmPassword ? (
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="#D4D4D4" strokeWidth="2"/>
+                                    <line x1="1" y1="1" x2="23" y2="23" stroke="#D4D4D4" strokeWidth="2"/>
+                                  </svg>
+                                ) : (
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z" stroke="#D4D4D4" strokeWidth="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="#D4D4D4" strokeWidth="2"/>
+                                  </svg>
+                                )}
+                              </button>
+                            </div>
+                            {formData.confirmPassword && (
+                              <div className="password-strength">
+                                <svg className="strength-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                  <path d="M13.19 4.19L9 8.38L5.81 5.19C5.42 4.8 4.79 4.8 4.4 5.19C4.01 5.58 4.01 6.21 4.4 6.6L8.29 10.49C8.68 10.88 9.31 10.88 9.7 10.49L14.6 5.59C14.99 5.2 14.99 4.57 14.6 4.18C14.21 3.79 13.58 3.79 13.19 4.18V4.19Z" fill={passwordsMatch() ? "#34C759" : "#FF3B30"}/>
+                                </svg>
+                                <span className={`strength-text ${passwordsMatch() ? 'strong' : 'weak'}`}>
+                                  {passwordsMatch() ? 'Şifre Eşleşiyor' : 'Şifreler Eşleşmiyor'}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Button Group */}
+                      <div className="button-group">
+                        <button type="button" onClick={handlePrevious} className="btn-secondary">
+                          <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M6 8L0 4L6 0" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                          Geri Dön
+                        </button>
+                        <button type="submit" className="btn-secondary">
+                          Devam Et
+                          <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M6 0L12 4L6 8" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </>
+                  )}
+
+                  {currentStep === 3 && (
+                    <>
+                      {/* Form Title */}
+                      <div className="form-title">
+                        <h3>Firma Bilgileri</h3>
+                        <p>Firmanız hakkında bilgi sahibi olabilmemiz için aşağıdaki alanları doldurunuz.</p>
+                      </div>
+
+                      {/* Company Information Section */}
+                      <div className="company-info-section">
+                        <div className="section-header">
+                          <h4 className="section-title">Firma Hakkında</h4>
+                        </div>
+                        
+                        <div className="form-row">
+                          <div className="form-field">
+                            <label>Firma Adı</label>
+                            <input
+                              type="text"
+                              name="companyName"
+                              value={formData.companyName}
+                              onChange={handleInputChange}
+                              placeholder="cankiriturizm"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="form-row">
+                          <div className="form-field">
+                            <label>Bağlı Olunan Açık Adres</label>
+                            <input
+                              type="text"
+                              name="companyAddress"
+                              value={formData.companyAddress}
+                              onChange={handleInputChange}
+                              placeholder=""
+                            />
+                          </div>
+                        </div>
+
+                        <div className="form-row">
+                          <div className="form-field">
+                            <label>Kurumsal İletişim Numarası</label>
+                            <input
+                              type="text"
+                              name="companyPhone"
+                              value={formData.companyPhone}
+                              onChange={handleInputChange}
+                              placeholder=""
+                            />
+                          </div>
+                        </div>
+
+                        <div className="form-row">
+                          <div className="form-field">
+                            <label>Vergi Levhası Tuşlayınız</label>
+                            <input
+                              type="text"
+                              name="taxNumber"
+                              value={formData.taxNumber}
+                              onChange={handleInputChange}
+                              placeholder=""
+                            />
+                          </div>
+                        </div>
+
+                        <div className="form-row form-row-split">
+                          <div className="form-field">
+                            <label>Kuruluş Tarihi</label>
+                            <input
+                              type="text"
+                              name="foundingDate"
+                              value={formData.foundingDate}
+                              onChange={handleInputChange}
+                              placeholder="12.05.1992"
+                            />
+                          </div>
+                          <div className="form-field">
+                            <label>Faaliyet Gösterdiği Yer</label>
+                            <input
+                              type="text"
+                              name="operationLocation"
+                              value={formData.operationLocation}
+                              onChange={handleInputChange}
+                              placeholder="Çankırı, TUR"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* File Upload Section */}
+                      <div className="file-upload-section">
+                        <div className="form-field">
+                          <label>Vergi Levhanızı Gösteren Belge Yükleyiniz</label>
+                          <div className="file-upload-area">
+                            <input
+                              type="file"
+                              id="taxDocument"
+                              name="taxDocument"
+                              onChange={handleFileUpload}
+                              accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                              style={{ display: 'none' }}
+                            />
+                            <label htmlFor="taxDocument" className="upload-content">
+                              {formData.taxDocument ? (
+                                <div className="file-selected">
+                                  <svg className="file-icon" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                                    <path d="M2 0H8L12 4V11C12 11.5523 11.5523 12 11 12H2C1.44772 12 1 11.5523 1 11V1C1 0.447715 1.44772 0 2 0Z" fill="#34C759"/>
+                                    <path d="M8 0V4H12" stroke="#ffffff" strokeWidth="1"/>
+                                  </svg>
+                                  <span className="file-name">{formData.taxDocument.name}</span>
+                                </div>
+                              ) : (
+                                <div className="upload-placeholder">
+                                  <svg className="upload-icon" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                                    <path d="M7 9L7 0" stroke="#878787" strokeWidth="2"/>
+                                    <path d="M4 3L7 0L10 3" stroke="#878787" strokeWidth="2" fill="none"/>
+                                    <path d="M1 9L1 11C1 11.5523 1.44772 12 2 12L12 12C12.5523 12 13 11.5523 13 11L13 9" stroke="#878787" strokeWidth="2"/>
+                                  </svg>
+                                  <span className="upload-text">Dosya Seçin</span>
+                                </div>
+                              )}
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Button Group */}
+                      <div className="button-group">
+                        <button type="button" onClick={handlePrevious} className="btn-secondary">
+                          <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M4 1L1 4L4 7" stroke="currentColor" strokeWidth="2" fill="none"/>
+                            <path d="M1 4L11 4" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                          Geri Dön
+                        </button>
+                        <button type="submit" className="btn-primary">
+                          Formu Gönder
+                          <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M8 1L11 4L8 7" stroke="currentColor" strokeWidth="2" fill="none"/>
+                            <path d="M1 4L11 4" stroke="currentColor" strokeWidth="2"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </form>
               </div>
             </div>
@@ -307,85 +651,7 @@ const FirmamiziOl = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="firmamizi-footer">
-        <div className="firmamizi-footer-container">
-          <div className="firmamizi-footer-brand">
-            <div className="firmamizi-footer-logo">
-              <span className="firmamizi-footer-logo-text">Travel-io</span>
-            </div>
-          </div>
-
-          <div className="firmamizi-footer-content">
-            <div className="firmamizi-footer-social">
-              <div className="firmamizi-social-icons">
-                <div className="firmamizi-social-icon twitter">
-                  <svg width="16" height="13" viewBox="0 0 16 13" fill="none">
-                    <path d="M16 1.54C15.4 1.8 14.8 1.97 14.1 2.05C14.8 1.64 15.3 1 15.5 0.24C14.9 0.62 14.2 0.89 13.4 1.04C12.8 0.39 11.9 0 10.9 0C9.1 0 7.7 1.4 7.7 3.18C7.7 3.43 7.7 3.67 7.8 3.9C5.1 3.76 2.7 2.5 1.1 0.58C0.8 1.09 0.7 1.64 0.7 2.28C0.7 3.5 1.3 4.59 2.3 5.21C1.8 5.21 1.3 5.06 0.9 4.83V4.87C0.9 6.42 2 7.71 3.5 8C3.2 8.08 2.9 8.12 2.6 8.12C2.4 8.12 2.2 8.1 2 8.06C2.4 9.33 3.6 10.27 5 10.29C4 11.15 2.7 11.66 1.3 11.66C1 11.66 0.8 11.65 0.5 11.62C1.9 12.53 3.6 13.05 5.5 13.05C10.9 13.05 13.8 8.17 13.8 3.55V3.28C14.5 2.81 15.1 2.22 15.5 1.54H16Z" fill="#080809"/>
-                  </svg>
-                </div>
-                <div className="firmamizi-social-icon facebook">
-                  <svg width="6" height="13" viewBox="0 0 6 13" fill="none">
-                    <path d="M5.86 7.31L6.14 4.98H3.89V3.43C3.89 2.78 4.21 2.15 5.2 2.15H6.23V0.18C6.23 0.18 5.31 0 4.43 0C2.6 0 1.44 1.08 1.44 3.04V4.98H-0.57V7.31H1.44V13H3.89V7.31H5.86Z" fill="#080809"/>
-                  </svg>
-                </div>
-                <div className="firmamizi-social-icon instagram">
-                  <div className="firmamizi-instagram-gradient">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M8 1.44C10.14 1.44 10.4 1.45 11.26 1.49C12.05 1.52 12.48 1.65 12.77 1.76C13.16 1.91 13.44 2.09 13.73 2.38C14.02 2.67 14.2 2.95 14.35 3.34C14.46 3.63 14.59 4.06 14.62 4.85C14.66 5.71 14.67 5.97 14.67 8.11C14.67 10.25 14.66 10.51 14.62 11.37C14.59 12.16 14.46 12.59 14.35 12.88C14.2 13.27 14.02 13.55 13.73 13.84C13.44 14.13 13.16 14.31 12.77 14.46C12.48 14.57 12.05 14.7 11.26 14.73C10.4 14.77 10.14 14.78 8 14.78C5.86 14.78 5.6 14.77 4.74 14.73C3.95 14.7 3.52 14.57 3.23 14.46C2.84 14.31 2.56 14.13 2.27 13.84C1.98 13.55 1.8 13.27 1.65 12.88C1.54 12.59 1.41 12.16 1.38 11.37C1.34 10.51 1.33 10.25 1.33 8.11C1.33 5.97 1.34 5.71 1.38 4.85C1.41 4.06 1.54 3.63 1.65 3.34C1.8 2.95 1.98 2.67 2.27 2.38C2.56 2.09 2.84 1.91 3.23 1.76C3.52 1.65 3.95 1.52 4.74 1.49C5.6 1.45 5.86 1.44 8 1.44ZM8 0C5.83 0 5.55 0.01 4.68 0.05C3.81 0.09 3.22 0.23 2.71 0.43C2.18 0.64 1.73 0.92 1.28 1.37C0.83 1.82 0.55 2.27 0.34 2.8C0.14 3.31 0 3.9 -0.04 4.77C-0.08 5.64 -0.09 5.92 -0.09 8.09C-0.09 10.26 -0.08 10.54 -0.04 11.41C0 12.28 0.14 12.87 0.34 13.38C0.55 13.91 0.83 14.36 1.28 14.81C1.73 15.26 2.18 15.54 2.71 15.75C3.22 15.95 3.81 16.09 4.68 16.13C5.55 16.17 5.83 16.18 8 16.18C10.17 16.18 10.45 16.17 11.32 16.13C12.19 16.09 12.78 15.95 13.29 15.75C13.82 15.54 14.27 15.26 14.72 14.81C15.17 14.36 15.45 13.91 15.66 13.38C15.86 12.87 16 12.28 16.04 11.41C16.08 10.54 16.09 10.26 16.09 8.09C16.09 5.92 16.08 5.64 16.04 4.77C16 3.9 15.86 3.31 15.66 2.8C15.45 2.27 15.17 1.82 14.72 1.37C14.27 0.92 13.82 0.64 13.29 0.43C12.78 0.23 12.19 0.09 11.32 0.05C10.45 0.01 10.17 0 8 0Z" fill="white"/>
-                      <path d="M8 3.89C5.73 3.89 3.89 5.73 3.89 8C3.89 10.27 5.73 12.11 8 12.11C10.27 12.11 12.11 10.27 12.11 8C12.11 5.73 10.27 3.89 8 3.89ZM8 10.67C6.52 10.67 5.33 9.48 5.33 8C5.33 6.52 6.52 5.33 8 5.33C9.48 5.33 10.67 6.52 10.67 8C10.67 9.48 9.48 10.67 8 10.67Z" fill="white"/>
-                      <circle cx="12.27" cy="3.73" r="0.84" fill="white"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="firmamizi-footer-download">
-              <h4>Uygulamamızı Keşfet!</h4>
-              <div className="firmamizi-download-buttons">
-                <div className="firmamizi-download-btn google-play">
-                  <div className="firmamizi-download-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M0.72 0.33L10.79 19.67" fill="#2196F3"/>
-                      <path d="M1.46 0L15.02 10" fill="#4CAF50"/>
-                      <path d="M11.51 6.62L19.28 13.38" fill="#F0BB1F"/>
-                      <path d="M1.46 10L15.02 20" fill="#F15A2B"/>
-                    </svg>
-                  </div>
-                </div>
-                <div className="firmamizi-download-btn app-store">
-                  <div className="firmamizi-download-icon">
-                    <svg width="13" height="16" viewBox="0 0 13 16" fill="none">
-                      <path d="M0 3.69L13.12 16M6.54 0L9.55 3.51" stroke="white" strokeWidth="2"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="firmamizi-footer-nav">
-              <div className="firmamizi-nav-column">
-                <h5>Kurumsal</h5>
-                <ul>
-                  <li><a href="#">Kariyer</a></li>
-                  <li><a href="#">İletişim</a></li>
-                </ul>
-              </div>
-              <div className="firmamizi-nav-column">
-                <h5>Müşteriler</h5>
-                <ul>
-                  <li><a href="#">Kurumsal Hesap Talep Edin</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="firmamizi-footer-bottom">
-            <p>Tüm Haklar Saklıdır, info@travel-io.com</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

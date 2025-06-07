@@ -449,19 +449,20 @@
 .firmamizi-ol .step-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 32px;
-  max-width: 1228px;
+  width: 1228px;
+  height: 1150px;
   margin: 0 auto;
   padding: 25px 43.5px;
-  background: #ffffff;
+  background: #F9F9F9;
   border-radius: 24px;
 }
 
 /* Step Images */
 .firmamizi-ol .step-images {
   width: 558px;
-  height: 1100px;
+  height: 900px;
   position: relative;
 }
 
@@ -469,7 +470,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -482,47 +483,57 @@
 
 .firmamizi-ol .step-image.step-1 {
   top: 0;
-  height: 383.8px;
+  
+  height: 300px;
   border-radius: 16px 16px 0 0;
 }
 
 .firmamizi-ol .step-image.step-2 {
-  top: 383.8px;
-  height: 357.94px;
+  top: 300px;
+  height: 300px;
 }
 
 .firmamizi-ol .step-image.step-3 {
   bottom: 0;
-  height: 357.94px;
+  height: 300px;
   border-radius: 0 0 16px 16px;
 }
 
 /* Step Form */
+/* Step Form Container */
 .firmamizi-ol .step-form {
   width: 552px;
-  height: 1100px;
+  height: 600px;
   background: #FCFCFC;
   border-radius: 8px;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .firmamizi-ol .form-container {
-  padding: 48.5px;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 24px;
 }
 
 /* Progress Bar */
 .firmamizi-ol .progress-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .firmamizi-ol .progress-step {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .firmamizi-ol .step-circle {
@@ -531,17 +542,24 @@
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid #B9B9C3;
+  z-index: 2;
 }
 
 .firmamizi-ol .step-circle.active {
   background: #24BAEC;
-  border: none;
+  border: 1px solid #24BAEC;
 }
 
 .firmamizi-ol .progress-line {
   width: 194px;
   height: 1px;
   background: #B9B9C3;
+  position: relative;
+  z-index: 1;
+}
+
+.firmamizi-ol .progress-line.active {
+  background: #24BAEC;
 }
 
 /* Form Content */
@@ -549,102 +567,150 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
+  width: 100%;
 }
 
-.firmamizi-ol .form-header h3 {
+/* Form Title */
+.firmamizi-ol .form-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.firmamizi-ol .form-title h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 32px;
-  line-height: 1.125;
+  line-height: 36px;
   color: #242731;
   margin: 0 0 16px 0;
 }
 
-.firmamizi-ol .form-header p {
+.firmamizi-ol .form-title p {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.375;
+  line-height: 22px;
   color: #575F6E;
   margin: 0;
 }
 
-/* Agreement */
-.firmamizi-ol .agreement {
+/* Terms Agreement */
+.firmamizi-ol .terms-agreement {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.firmamizi-ol .checkbox-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.firmamizi-ol .checkbox-container input[type="checkbox"] {
-  width: 24px;
-  height: 24px;
+.firmamizi-ol .terms-checkbox {
+  width: 32px;
+  height: 32px;
   border-radius: 6px;
   border: 2px solid #24BAEC;
   background: #ffffff;
   cursor: pointer;
+  appearance: none;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-.firmamizi-ol .checkbox-label {
+.firmamizi-ol .terms-checkbox:checked {
+  background: #24BAEC;
+}
+
+.firmamizi-ol .terms-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.firmamizi-ol .terms-label {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 24px;
   color: #000000;
   cursor: pointer;
+  flex: 1;
 }
 
-.firmamizi-ol .checkbox-label .link {
+.firmamizi-ol .terms-label .link {
   color: #24BAEC;
   font-weight: 500;
+  text-decoration: none;
 }
 
-/* Form Sections */
-.firmamizi-ol .form-section {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  padding: 32px;
+.firmamizi-ol .terms-label .link:hover {
+  text-decoration: underline;
+}
+
+/* Personal Information Section */
+.firmamizi-ol .personal-info-section {
+  background: #ffffff;
   border: 1px solid #E2E4E5;
   border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 30px;
 }
 
-.firmamizi-ol .form-section h4 {
+.firmamizi-ol .section-header {
+  margin-bottom: 16px;
+}
+
+.firmamizi-ol .section-title {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 20px;
-  line-height: 1.4;
+  line-height: 28px;
   color: #242731;
   margin: 0;
 }
 
-.firmamizi-ol .contact-section {
-  gap: 2px;
-  padding: 16px;
+.firmamizi-ol .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-.firmamizi-ol .contact-section h4 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+.firmamizi-ol .form-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Contact Information Section */
+.firmamizi-ol .contact-info-section {
+  background: #ffffff;
+  border: 1px solid #E2E4E5;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.firmamizi-ol .contact-info-section .section-header {
+  margin-bottom: 12px;
+}
+
+.firmamizi-ol .contact-info-section .section-title {
   font-size: 18px;
-  line-height: 1.33;
-  color: #242731;
+  line-height: 24px;
+  margin-bottom: 4px;
 }
 
-.firmamizi-ol .contact-section p {
+.firmamizi-ol .section-description {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 12px;
-  line-height: 1.33;
+  line-height: 16px;
   color: #575F6E;
-  margin: 0 0 16px 0;
+  margin: 0;
 }
 
 /* Form Fields */
@@ -652,62 +718,126 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1;
 }
 
 .firmamizi-ol .form-field label {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.43;
+  line-height: 20px;
   color: #242426;
+  margin-bottom: 4px;
 }
 
 .firmamizi-ol .form-field input {
-  padding: 8px 16px;
+  width: 100%;
+  padding: 12px 0;
   border: none;
   border-bottom: 1px solid #E2E4E5;
   background: transparent;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.56;
+  line-height: 28px;
   color: #242426;
   outline: none;
+  box-sizing: border-box;
 }
 
 .firmamizi-ol .form-field input:focus {
   border-bottom-color: #24BAEC;
 }
 
+.firmamizi-ol .form-field input::placeholder {
+  color: #B9B9C3;
+  font-weight: 300;
+}
+
 .firmamizi-ol .input-with-icon {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 8px 0;
-  border-bottom: 1px solid #E2E4E5;
+  position: relative;
+  width: 100%;
 }
 
 .firmamizi-ol .input-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 24px;
   height: 24px;
-  flex-shrink: 0;
+  z-index: 1;
 }
 
 .firmamizi-ol .input-with-icon input {
-  flex: 1;
-  border: none;
-  padding: 0;
-  background: transparent;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.56;
-  color: #242426;
-  outline: none;
+  padding-left: 40px;
 }
 
-/* Submit Button */
-.firmamizi-ol .submit-btn {
+/* Admin Panel Section */
+.firmamizi-ol .admin-panel-section {
+  background: #ffffff;
+  border: 1px solid #E2E4E5;
+  border-radius: 8px;
+  padding: 32px;
+  margin-bottom: 0;
+}
+
+.firmamizi-ol .password-field {
+  position: relative;
+}
+
+
+
+.firmamizi-ol .password-toggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.firmamizi-ol .password-strength {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.firmamizi-ol .strength-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.firmamizi-ol .strength-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #34C759;
+}
+
+.firmamizi-ol .strength-text.weak {
+  color: #FF3B30;
+}
+
+.firmamizi-ol .strength-text.strong {
+  color: #34C759;
+}
+
+/* Button Group */
+.firmamizi-ol .button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.firmamizi-ol .btn-secondary {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -715,26 +845,51 @@
   padding: 0 24px 0 32px;
   height: 48px;
   background: #FF7029;
-  border: 1px solid #24BAEC;
+  border: 1px solid #B9B9C3;
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 24px;
   text-transform: uppercase;
   color: #242731;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.firmamizi-ol .submit-btn:hover {
-  background: #24BAEC;
+.firmamizi-ol .btn-secondary:hover {
+  background: #e55a1f;
+}
+
+/* Submit Button */
+.firmamizi-ol .submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  height: 56px;
+  background: #FF7029;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
   color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.firmamizi-ol .submit-btn:hover {
+  background: #e55a1f;
+  transform: translateY(-1px);
 }
 
 .firmamizi-ol .btn-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Footer - Firmamız Ol Sayfası İçin Özel Footer */
@@ -1001,4 +1156,184 @@
   .firmamizi-ol .form-container {
     padding: 20px;
   }
+}
+
+/* Company Information Section Styles */
+.firmamizi-ol .company-info-section {
+  background: #ffffff;
+  border: 1px solid #E2E4E5;
+  border-radius: 8px;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.firmamizi-ol .company-info-section .section-header {
+  margin-bottom: 32px;
+}
+
+.firmamizi-ol .company-info-section .section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #242731;
+  margin: 0;
+}
+
+/* Form Row Split for Two Columns */
+.firmamizi-ol .form-row-split {
+  display: flex;
+  gap: 32px;
+}
+
+.firmamizi-ol .form-row-split .form-field {
+  flex: 1;
+}
+
+/* Select Wrapper Styles */
+.firmamizi-ol .select-wrapper {
+  position: relative;
+}
+
+.firmamizi-ol .select-wrapper select {
+  width: 100%;
+  padding: 8px 40px 8px 16px;
+  border: none;
+  border-bottom: 1px solid #E2E4E5;
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  color: #242426;
+  appearance: none;
+  cursor: pointer;
+}
+
+.firmamizi-ol .select-wrapper select:focus {
+  outline: none;
+  border-bottom-color: #24BAEC;
+}
+
+.firmamizi-ol .select-arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* File Upload Section Styles */
+.firmamizi-ol .file-upload-section {
+  background: #ffffff;
+  border: 1px solid #E2E4E5;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 32px;
+}
+
+.firmamizi-ol .file-upload-section .form-field {
+  margin-bottom: 0;
+}
+
+.firmamizi-ol .file-upload-section label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #242426;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.firmamizi-ol .file-upload-area {
+  width: 100%;
+  height: 28.59px;
+  position: relative;
+}
+
+.firmamizi-ol .upload-content {
+  width: 424px;
+  height: 28.59px;
+  background: #E5E5E5;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.firmamizi-ol .upload-content:hover {
+  background: #d0d0d0;
+}
+
+.firmamizi-ol .upload-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.firmamizi-ol .upload-icon {
+  width: 14px;
+  height: 12.59px;
+  flex-shrink: 0;
+}
+
+.firmamizi-ol .upload-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #878787;
+}
+
+.firmamizi-ol .file-selected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.firmamizi-ol .file-icon {
+  width: 14px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.firmamizi-ol .file-name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #34C759;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Primary Button Styles */
+.firmamizi-ol .btn-primary {
+  background: #24BAEC;
+  border: 1px solid #FF7029;
+  color: #ffffff;
+  padding: 0 24px 0 32px;
+  height: 48px;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.firmamizi-ol .btn-primary:hover {
+  background: #1a9bc7;
+  transform: translateY(-1px);
 } 
